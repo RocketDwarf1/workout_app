@@ -1,0 +1,2142 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1d22" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Unit 6 Training Guide</title><meta name="u6-test" content="v2">
+<style>@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/barlow-latin-400-normal.woff2) format('woff2')}@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/barlow-latin-500-normal.woff2) format('woff2')}@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-condensed-latin-600-normal.woff2) format('woff2')}@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/barlow-condensed-latin-700-normal.woff2) format('woff2')}@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2')}:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<script>window.U6_APP = 1;</script>
+<style>
+/* Layout: an equipment manual you can operate — sticky station tabs over a scanning grid; detail opens as a sheet. */
+:root {
+  --bg: #eef0f2; --surface: #ffffff; --surface-2: #f6f7f8; --ink: #15181c; --muted: #59616c; --line: #d9dde2;
+  --hot: #e5541c; --hot-far: #b8441a; --st: #1f62c7; --st-soft: rgba(31, 98, 199, .18);
+  --ok: #1d7f47; --likely: #4f5b69; --check: #a86b0c; --no: #b8322a;
+  --floor: #e2e5e9; --frame: #4a5059; --shroud: #2f333a; --pad: #23262b; --chrome: #b5bcc5;
+  --body: #9ea8b3; --body-far: #c5ccd4; --face: #4a5059; --grip: #2a2e34; --grip-soft: rgba(20, 24, 30, .22); --p0: #0f8a7e; --p1: #8a4bd1; --cable: #1b1e22; --steel: #5d646d;
+  --f-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --f-body: "Barlow", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111316; --surface: #1a1d22; --surface-2: #20242a; --ink: #e9ecef; --muted: #9ba4ae; --line: #2d3239;
+  --hot: #ff7440; --hot-far: #d65a2c; --st: #5e9bff; --st-soft: rgba(94, 155, 255, .2);
+  --ok: #48c07c; --likely: #9aa6b4; --check: #e5a83a; --no: #f0695e;
+  --floor: #1f2329; --frame: #858d98; --shroud: #3e444d; --pad: #4c535d; --chrome: #6f7783;
+  --body: #a4adb8; --body-far: #646d78; --face: #1a1d22; --grip: #15181c; --grip-soft: rgba(0, 0, 0, .3); --p0: #3cc7b6; --p1: #b78af0; --cable: #dfe3e8; --steel: #aab2bc; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111316; --surface: #1a1d22; --surface-2: #20242a; --ink: #e9ecef; --muted: #9ba4ae; --line: #2d3239;
+  --hot: #ff7440; --hot-far: #d65a2c; --st: #5e9bff; --st-soft: rgba(94, 155, 255, .2);
+  --ok: #48c07c; --likely: #9aa6b4; --check: #e5a83a; --no: #f0695e;
+  --floor: #1f2329; --frame: #858d98; --shroud: #3e444d; --pad: #4c535d; --chrome: #6f7783;
+  --body: #a4adb8; --body-far: #646d78; --face: #1a1d22; --grip: #15181c; --grip-soft: rgba(0, 0, 0, .3); --p0: #3cc7b6; --p1: #b78af0; --cable: #dfe3e8; --steel: #aab2bc; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 400 15px/1.5 var(--f-body); margin: 0 }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface) }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; letter-spacing: .01em; text-wrap: balance; margin: 0; line-height: 1.05 }
+a { color: var(--st) }
+button { font: inherit; color: inherit }
+:focus-visible { outline: 2px solid var(--st); outline-offset: 2px }
+
+/* header + tabs */
+header.top { background: var(--surface); border-bottom: 1px solid var(--line) }
+header.top .wrap { padding-block: 18px 0; display: grid; gap: 6px }
+.eyebrow { font: 600 12px/1 var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+header.top h1 { font-size: clamp(30px, 5vw, 44px) }
+header.top p { margin: 0 0 4px; color: var(--muted); max-width: 70ch }
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+nav.tabs .wrap { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none }
+nav.tabs a { font: 700 17px/1 var(--f-display); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 13px 14px 11px; border-bottom: 3px solid transparent; white-space: nowrap }
+nav.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--hot) }
+nav.tabs a .n { font: 500 12px var(--f-mono); color: var(--muted); margin-left: 4px }
+
+main section { padding-block: 22px 48px }
+.lead { display: grid; gap: 10px; margin-bottom: 18px }
+.lead h2 { font-size: 30px }
+.lead p { margin: 0; max-width: 72ch; color: var(--muted) }
+.key { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted) }
+.key span { display: inline-flex; align-items: center; gap: 6px }
+.sw { width: 18px; height: 8px; border-radius: 4px; display: inline-block }
+
+/* filters */
+.filters { display: grid; gap: 8px; margin: 6px 0 16px }
+.chips { display: flex; flex-wrap: wrap; gap: 6px }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; line-height: 1.2 }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+.chip .n { font: 500 11px var(--f-mono); opacity: .7; margin-left: 3px }
+.flabel { font: 600 11px var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-right: 4px; align-self: center }
+
+/* exercise cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 12px }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: pointer; text-align: left; padding: 0; display: grid; grid-template-rows: auto 1fr; min-width: 0 }
+.card:hover { border-color: var(--muted) }
+.card canvas { width: 100%; aspect-ratio: 4 / 3; display: block; background: var(--surface) }
+.card .meta { padding: 10px 12px 12px; display: grid; gap: 4px; align-content: start; border-top: 1px solid var(--line) }
+.card .g { font: 600 11px var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.card b { font: 700 19px/1.1 var(--f-display); letter-spacing: .01em }
+.card .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 2px }
+.station { font-size: 12.5px; color: var(--st); font-weight: 600 }
+.att { font-size: 12.5px; color: var(--muted) }
+.pill { font: 600 11px/1 var(--f-body); letter-spacing: .04em; padding: 4px 7px; border-radius: 4px; border: 1.5px solid currentColor; white-space: nowrap }
+.v-C { color: var(--ok) } .v-L { color: var(--likely) } .v-K { color: var(--check) } .v-X { color: var(--no) }
+.empty { padding: 30px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px }
+
+/* plans */
+.pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px }
+.plan { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; align-content: start; scroll-margin-top: 70px; min-width: 0 }
+.plan.flash { box-shadow: 0 0 0 3px var(--hot) }
+.plan h3 { font-size: 23px }
+.plan .z { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap }
+.mins { font: 500 13px var(--f-mono); color: var(--hot) }
+.zone { font-size: 13px; color: var(--st); font-weight: 600 }
+.once { background: var(--surface-2); border-radius: 8px; padding: 9px 11px; font-size: 13.5px }
+.once b { font-weight: 600 }
+.xl { display: grid; gap: 2px }
+.xl button { display: flex; justify-content: space-between; gap: 10px; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 7px 0; cursor: pointer; text-align: left }
+.xl button:last-child { border-bottom: 0 }
+.xl button span:first-child { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px }
+.xl button:hover span:first-child { text-decoration-color: var(--st); color: var(--st) }
+.xl .sr { font: 500 13px var(--f-mono); white-space: nowrap; font-variant-numeric: tabular-nums }
+.xl em { font-style: normal; color: var(--muted); font-size: 12px; font-family: var(--f-body) }
+.mus { font-size: 12.5px; color: var(--muted) }
+h3.sect { font-size: 22px; margin: 22px 0 10px; display: flex; align-items: baseline; gap: 8px }
+.route { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 0; font-size: 13px; color: var(--st); font-weight: 600 }
+.route li + li::before { content: "\2192"; color: var(--muted); font-weight: 400; margin: 0 6px }
+.matTag { font: 600 10.5px var(--f-body) !important; letter-spacing: .06em; text-transform: uppercase; color: var(--st) !important; margin-left: 4px }
+
+/* week */
+.week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px }
+.day { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0 }
+.day h3 { font-size: 22px; display: flex; justify-content: space-between; align-items: baseline }
+.day h3 small { font: 500 12px var(--f-mono); color: var(--muted) }
+.day.rest { background: transparent; border-style: dashed; color: var(--muted) }
+.wk { display: grid; gap: 3px }
+.wk a { font: 700 16px/1.15 var(--f-display); text-decoration: none; color: var(--ink) }
+.wk a:hover { color: var(--st) }
+.wk .mins { font-size: 12px }
+.wk .wz { font-size: 12.5px; color: var(--st); line-height: 1.3 }
+.wk ul { list-style: none; margin: 2px 0 0; padding: 0; display: grid; gap: 1px }
+.wk li button { background: none; border: 0; padding: 1px 0; font-size: 13px; color: var(--muted); cursor: pointer; text-align: left }
+.wk li button:hover { color: var(--st) }
+@media (max-width: 980px) { .week { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) } }
+.tblwrap { overflow-x: auto; margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px }
+table.cov { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 520px }
+.cov th, .cov td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: center }
+.cov th:first-child, .cov td:first-child { text-align: left }
+.cov thead th { font: 600 11px var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.cov tr:last-child td { border-bottom: 0 }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--hot) }
+.cov td.tot { font: 500 13px var(--f-mono); color: var(--muted) }
+
+/* machine */
+.mgrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; align-items: start }
+@media (max-width: 860px) { .mgrid { grid-template-columns: 1fr } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; min-width: 0 }
+.panel h3 { font-size: 22px }
+#mcanvas { width: 100%; aspect-ratio: 1 / 1; display: block }
+.views { display: flex; gap: 6px; flex-wrap: wrap }
+.stl { display: grid; gap: 0 }
+.stl div { display: grid; grid-template-columns: 30px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line) }
+.stl div:last-child { border-bottom: 0 }
+.stl .k { font: 700 18px var(--f-display); color: var(--st) }
+.stl p { margin: 2px 0 0; font-size: 13.5px; color: var(--muted) }
+.chk { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px }
+.rem { display: grid; gap: 8px }
+.rem div { font-size: 14px }
+.rem b { font-weight: 600 }
+.src { font-size: 13.5px; display: grid; gap: 4px }
+
+/* detail sheet */
+dialog.sheet { border: 0; padding: 0; background: var(--surface); color: var(--ink); width: min(1060px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); border-radius: 12px; overflow: hidden }
+dialog.sheet::backdrop { background: rgba(10, 12, 15, .6) }
+.sheet-in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); max-height: calc(100dvh - 24px) }
+.stage { background: var(--surface-2); padding: 14px; display: grid; gap: 10px; align-content: start; border-right: 1px solid var(--line) }
+#dcanvas { width: 100%; aspect-ratio: 1 / 1; display: block; background: var(--surface) ; border-radius: 8px }
+.ctrls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap }
+.ctrls input[type=range] { flex: 1; min-width: 120px; accent-color: var(--hot) }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 6px 11px; font-size: 13px; cursor: pointer }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+.info { padding: 18px 20px 22px; overflow-y: auto; display: grid; gap: 14px; align-content: start }
+.info .top { display: flex; justify-content: space-between; gap: 10px; align-items: start }
+.info h2 { font-size: 32px }
+.info h4 { font: 600 11px var(--f-body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px }
+.info p { margin: 0; max-width: 62ch }
+.setup { background: var(--st-soft); border-radius: 8px; padding: 10px 12px }
+.setup p { color: var(--ink) }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 13.5px }
+.checks li { display: grid; grid-template-columns: 18px 1fr; gap: 6px }
+.checks li::before { content: "\2713"; color: var(--ok); font-weight: 700 }
+.checks li.w::before { content: "!"; color: var(--check) }
+.checks b { font-weight: 600 }
+.nav2 { display: flex; gap: 6px; flex-wrap: wrap }
+.hwho { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 2px 0 6px }
+.restorebox { flex-basis: 100%; display: grid; gap: 6px; font-size: 13px; color: var(--muted) }
+.restorebox textarea { font: 12px var(--f-mono); width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); resize: vertical }
+.who { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface) }
+.whob { border: 0; background: none; padding: 6px 12px; font-size: 13.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px }
+.whob[aria-pressed="true"] { background: var(--ink); color: var(--bg) }
+.who.small .whob { padding: 4px 10px; font-size: 12.5px }
+.pdot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none }
+.btn.small { padding: 4px 10px; font-size: 12.5px }
+.namesf { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px }
+.namesf input { font: inherit; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); width: 9.5em }
+.planwho { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 10px }
+.pnote { font-size: 13px; color: var(--muted); margin: 0 }
+.cprog { display: flex; flex-wrap: wrap; gap: 4px 12px; font: 500 12px var(--f-mono); color: var(--ink); margin-top: 2px }
+.cprog span { display: inline-flex; align-items: center; gap: 5px }
+.prow { border-bottom: 1px solid var(--line); padding: 4px 0 6px; position: relative }
+.prow:last-child { border-bottom: 0 }
+.xl .exn { display: flex; justify-content: space-between; gap: 10px; background: none; border: 0; padding: 4px 0 2px; cursor: pointer; text-align: left; width: 100% }
+.xl .exn span:first-child { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px }
+.xl .exn:hover span:first-child { text-decoration-color: var(--st); color: var(--st) }
+.pline { display: flex; justify-content: space-between; align-items: center; gap: 8px }
+.pls { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 12px; color: var(--muted); min-width: 0 }
+.pl { display: inline-flex; align-items: center; gap: 5px }
+.pl b { font: 500 12px var(--f-mono); color: var(--ink) }
+.pl em { font-style: normal }
+.logf { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; margin-top: 8px; background: var(--surface-2); border-radius: 8px; padding: 9px 10px }
+.logf label { display: grid; gap: 2px; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+.logf label span { display: inline-flex; align-items: center; gap: 4px; text-transform: none; letter-spacing: 0; font-weight: 400; font-size: 13px; color: var(--muted) }
+.logf input { font: 500 15px var(--f-mono); width: 4.6em; padding: 6px 7px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font-variant-numeric: tabular-nums }
+.logbtn { background: var(--ink); color: var(--bg); border-color: var(--ink); font-weight: 600 }
+.prog { border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 10px; position: relative }
+.phead { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap }
+.phead h4 { margin: 0 }
+.pcols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+@media (max-width: 420px) { .pcols { grid-template-columns: 1fr } }
+.pcol { display: grid; gap: 6px; align-content: start; min-width: 0 }
+.pname { display: flex; align-items: center; gap: 6px; font-weight: 600 }
+.stat { display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; font-size: 12.5px; color: var(--muted) }
+.stat b { font: 500 13.5px var(--f-mono); color: var(--ink) }
+.hist { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 12.5px }
+.hist li { display: grid; grid-template-columns: 1fr auto 22px; gap: 6px; align-items: center; color: var(--muted) }
+.hist .v { font: 500 12.5px var(--f-mono); color: var(--ink) }
+.del { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 16px; line-height: 1; padding: 2px }
+.del:hover { color: var(--no) }
+.none { margin: 0; font-size: 13px; color: var(--muted) }
+.spark { display: grid; gap: 2px }
+.spark svg { width: 100%; height: 54px; display: block; background: var(--surface-2); border-radius: 6px }
+.spark span { font-size: 11.5px; color: var(--muted) }
+.plog { color: var(--st); border-color: var(--st); font-weight: 600; background: var(--surface) }
+.prow .toast { top: auto; bottom: 6px; right: 52px }
+.toast { position: absolute; right: 10px; top: 8px; background: var(--ok); color: #fff; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; pointer-events: none }
+
+.gripbox { display: grid; grid-template-columns: 170px 1fr; gap: 14px; align-items: center; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px }
+.gripbox b { font-weight: 600; display: block; margin-bottom: 2px }
+.gripsvg { width: 100%; height: auto; display: block }
+@media (max-width: 420px) { .gripbox { grid-template-columns: 110px 1fr } }
+.grip { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--muted) }
+.fist { width: 14px; height: 11px; border-radius: 4px; background: repeating-linear-gradient(90deg, var(--body) 0 2.6px, var(--grip-soft) 2.6px 3.4px), var(--body); display: inline-block }
+.x { border: 0; background: var(--surface-2); border-radius: 6px; width: 34px; height: 34px; font-size: 20px; line-height: 1; cursor: pointer; flex: none }
+@media (max-width: 760px) {
+  .sheet-in { grid-template-columns: 1fr; overflow-y: auto }
+  .stage { border-right: 0; border-bottom: 1px solid var(--line) }
+  .info { overflow: visible }
+  #dcanvas { aspect-ratio: 4 / 3 }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto } }
+</style>
+
+<header class="top"><div class="wrap">
+  <h1>Unit 6 Training Guide</h1>
+  <div class="hwho" id="hdrWho"></div>
+</div></header>
+<nav class="tabs" aria-label="Sections"><div class="wrap">
+  <a href="#exercises" data-v="exercises">Exercises<span class="n" id="nEx"></span></a>
+  <a href="#plans" data-v="plans">Plans<span class="n" id="nPl"></span></a>
+  <a href="#week" data-v="week">Week</a>
+  <a href="#machine" data-v="machine">Machine model</a>
+</div></nav>
+
+<main>
+<section id="v-exercises" class="wrap">
+  <div class="lead">
+    <div class="key">
+      <span><i class="sw" style="background:var(--hot)"></i>Muscles doing the work</span>
+      <span><i class="sw" style="background:var(--st)"></i>The part of the machine, or the mat, you use</span>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="chips" id="fMuscle"><span class="flabel">Muscle</span></div>
+    <div class="chips" id="fStation"><span class="flabel">Station</span></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="v-plans" class="wrap" hidden>
+  <div class="lead">
+    <h2>Plans</h2>
+    <p>Plans for one muscle group, and plans that combine several. Each card lists the stations in the order you use them, so you only move a few times. Warm up with one or two light sets, rest about 60 seconds between sets, and pick a weight where the last two reps are hard but clean. The manual suggests 60–80% of your max for 8–12 reps to build muscle, or 40–50% for 15–20 reps for endurance, and at least 10 kg on the pulley station so the cable stays on its pulleys.</p>
+  </div>
+  <div class="planwho" id="planWho"></div>
+  <div class="filters">
+    <div class="chips" id="fLen"><span class="flabel">Length</span></div>
+    <div class="chips" id="fPm"><span class="flabel">Muscle</span></div>
+  </div>
+  <h3 class="sect">One muscle group</h3>
+  <div class="pgrid" id="pg1"></div>
+  <h3 class="sect">Several muscle groups</h3>
+  <div class="pgrid" id="pg2"></div>
+</section>
+
+<section id="v-week" class="wrap" hidden>
+  <div class="lead">
+    <h2>A full body, across the week</h2>
+    <p>Six sessions of about half an hour, built from the plans for several muscle groups. Together they train every muscle group at least once, and most get two sessions. Swap any plan for one that trains the same muscles if you want variety.</p>
+  </div>
+  <div class="week" id="weekGrid"></div>
+  <div class="tblwrap"><table class="cov" id="cov"></table></div>
+</section>
+
+<section id="v-machine" class="wrap" hidden>
+  <div class="lead">
+    <h2>The reference model</h2>
+    <p>A scale model of the Unit 6 in centimetres, measured from the manufacturer’s side and front photos and checked against the parts list. Each exercise is posed on this model with an average-sized adult (about 176 cm) and tested before it made the list.</p>
+  </div>
+  <div class="mgrid">
+    <div class="panel">
+      <canvas id="mcanvas" width="600" height="600" aria-label="Model of the Unit 6 with its stations labelled"></canvas>
+      <div class="views" id="mviews"></div>
+    </div>
+    <div class="panel">
+      <h3>Stations</h3>
+      <div class="stl" id="stl"></div>
+    </div>
+    <div class="panel">
+      <h3>How each exercise is checked</h3>
+      <ol class="chk">
+        <li><b>Reach.</b> Hands get to the handles, arm pads or hand-holds at every point of the movement.</li>
+        <li><b>Resistance.</b> The working part of the move pulls cable out or moves a lever the way the stack resists. If it doesn’t, the weight does nothing.</li>
+        <li><b>Contact.</b> Upper arms stay on the arm pad; the leg lever’s roller stays against the shin or calf.</li>
+        <li><b>Cable path.</b> The cable runs clear of your torso, head and legs.</li>
+        <li><b>Space.</b> No part of you passes through the tower, rail, column, seat or backrest.</li>
+        <li><b>Joints.</b> Elbows and knees stay within a normal range of bend.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h3>Changed after checking</h3>
+      <div class="rem" id="rem"></div>
+    </div>
+    <div class="panel" style="grid-column:1 / -1">
+      <h3>Sources</h3>
+      <div class="src">
+        <div><a href="https://www.focusfitness.nl/home-gym-focus-fitness-unit-6.html" target="_blank" rel="noopener">Focus Fitness Unit 6 product page</a> — 23 photos, including the chest press, butterfly, lat pulldown, preacher curl, leg extension, standing leg curl, glute kickback, floor row and woodchop.</div>
+        <div><a href="https://m.media-amazon.com/images/I/B1biNKfWgJL.pdf" target="_blank" rel="noopener">Unit 6 manual (FFHG023)</a> — parts list, training advice and the 10 kg minimum for the pulley station.</div>
+        <div>Your own photo of the preacher curl on the arm pad.</div>
+        <div>Machine demo videos: <a href="https://www.youtube.com/watch?v=GNvxu7WOeNM" target="_blank" rel="noopener">Unit 6</a>, <a href="https://www.youtube.com/watch?v=uHT1ub6mxmE" target="_blank" rel="noopener">Unit 4</a>, <a href="https://www.youtube.com/watch?v=3Cna0IQX91M" target="_blank" rel="noopener">Home Gym Basic</a> (Betersport).</div>
+        <div>Measurements are estimates from photos (±5 cm); hole numbers on the pulley station count from the bottom.</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<dialog class="sheet" id="sheet" aria-labelledby="dTitle">
+  <div class="sheet-in">
+    <div class="stage">
+      <canvas id="dcanvas" width="640" height="640" aria-label="Animated figure doing the exercise"></canvas>
+      <div class="ctrls">
+        <div class="views" id="dviews"></div>
+      </div>
+      <div class="ctrls">
+        <button class="btn" id="dplay" type="button">Pause</button>
+        <input type="range" id="dscrub" min="0" max="100" value="0" aria-label="Step through the movement">
+      </div>
+    </div>
+    <div class="info">
+      <div class="top">
+        <div>
+          <div class="eyebrow" id="dGroup"></div>
+          <h2 id="dTitle"></h2>
+        </div>
+        <button class="x" id="dclose" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="row" id="dTags" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"></div>
+      <div class="setup"><h4 id="dSetupH">Machine set-up</h4><p id="dSetup"></p></div>
+      <div class="gripbox"><div id="dGripI"></div><div><h4>How to hold</h4><b id="dGripT"></b><p id="dGrip"></p></div></div>
+      <div class="prog" id="dProg"></div>
+      <div><h4>How to do it</h4><p id="dHow"></p></div>
+      <div><h4>Watch out for</h4><p id="dWatch"></p></div>
+      <div><h4>Good form</h4><p id="dForm"></p></div>
+      <div><h4>Checked on the model</h4><ul class="checks" id="dChecks"></ul></div>
+      <div><h4>Video</h4><p><a id="dVid" target="_blank" rel="noopener">Find a demo on YouTube</a></p></div>
+      <div class="nav2"><button class="btn" id="dprev" type="button">← Previous</button><button class="btn" id="dnext" type="button">Next →</button></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ===== Unit 6 reference model: machine geometry, body model, renderer, checker =====
+   Units: cm. Axes: x = toward the front of the machine, y = the seated user's left, z = up.
+   The pulley station rail is on the seated user's right (y < 0). */
+const D2R = Math.PI / 180;
+const add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+const mul = (a, k) => [a[0] * k, a[1] * k, a[2] * k];
+const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+const vlen = a => Math.hypot(a[0], a[1], a[2]);
+const norm = a => { const l = vlen(a) || 1; return mul(a, 1 / l); };
+const mix = (a, b, t) => a + (b - a) * t;
+const Z = [0, 0, 1];
+
+/* ---------- body (adult ~176 cm) ---------- */
+const BD = { ank: 8, sh: 44, th: 44, hipW: 9, tor: 50, shW: 17, neck: 7, head: 11, ua: 29, fa: 31, hand: 8,
+  w: { tor: 21, th: 13, sh: 10, ua: 9, fa: 8 } };
+
+/* ---------- machine (estimated from the manufacturer's photos and parts list) ---------- */
+const M = {
+  tower: { x: [-32, 0], y: [-15, 15], z: [0, 172] },
+  topZ: 189, topX: [-18, 70],
+  latP: [67, 0, 183],
+  press: { piv: [47, 0, 174], r0: 21, r1: 73, y: 38, grip: 29, pad: [36, 64], hand: 9 },
+  fly: { hx: 34, hy: 17, R: 29, open: 85, close: -25, z0: 106, z1: 138 },
+  col: { a: [33, 0, 3], b: [5, 0, 176] },
+  pads: [[60, 80], [83, 100], [103, 117]], padT: 7, padW: 14,
+  seat: { x: [30, 72], w: 17, z: 52 },
+  fixR: { x: 78, y: 11, z: 55, r: 6 },
+  lev: { piv: [84, 0, 58], L: 38, rest: 12, y: 12, r: 6 },
+  armPad: { a: [78, 92], b: [104, 68], w: 21 },
+  lowO: [100, 0, 6], plate: { x: [104, 119], y: 12 },
+  rail: { x: -4, y: -24, z: [6, 192] }, carY: -32, h0: 14, dh: 11.4
+};
+const carZ = h => M.h0 + (h - 1) * M.dh;
+const HOLE_NAMES = h => h <= 1 ? 'the lowest hole' : h >= 16 ? 'the top hole' : 'hole ' + h + ' of 16';
+function outlet(cab, h) {
+  if (cab === 'UP') return M.latP;
+  if (cab === 'LP') return M.lowO;
+  return [M.rail.x + 2, M.carY, carZ(h || 1)];
+}
+function pressHandle(phi, s) {
+  const p = M.press.piv, a = phi * D2R, r = M.press.r1;
+  return [p[0] + r * Math.sin(a) + M.press.hand * Math.cos(a), s * M.press.grip, p[2] - r * Math.cos(a) + M.press.hand * Math.sin(a)];
+}
+function pressPt(phi, r, s) {
+  const p = M.press.piv, a = phi * D2R;
+  return [p[0] + r * Math.sin(a), s * M.press.y, p[2] - r * Math.cos(a)];
+}
+function flyXY(psi, s) {
+  const F = M.fly, th = mix(F.open, F.close, psi) * D2R;
+  return [F.hx + F.R * Math.cos(th), s * (F.hy + F.R * Math.sin(th))];
+}
+function leverRoller(th, s) {
+  const L = M.lev, a = th * D2R;
+  return [L.piv[0] + L.L * Math.sin(a), s * L.y, L.piv[2] - L.L * Math.cos(a)];
+}
+function padEdge(which, s) {
+  const P = M.armPad, e = which === 'a' ? P.a : P.b;
+  return [e[0], s * P.w, e[1]];
+}
+
+/* ---------- pose ---------- */
+const BASE = {
+  stand: { x: 0, y: 0, z: 96, yaw: 0, lean: 0 },
+  seat: { x: 40, y: 0, z: 61, yaw: 0, lean: -8, lB: [90, 8, 0] },
+  seatRev: { x: 57, y: 0, z: 61, yaw: 180, lean: -12, lB: [84, 31, -4] },
+  floor: { x: 0, y: 0, z: 12, yaw: 0, lean: -6, lB: [112, 9, 70] },
+  kneel: { x: 0, y: 0, yaw: 0, lean: 6, lB: [4, 7, -90] },
+  free: { x: 0, y: 0, z: 40, yaw: 0, lean: 0, lB: [0, 6, 0] }
+};
+const REST_ARM = [8, 12, 14, 10];
+
+function lerpSpec(a, b, t) {
+  if (a === undefined) return b; if (b === undefined) return a;
+  if (Array.isArray(a) && Array.isArray(b)) return a.map((v, i) => mix(v, b[i] === undefined ? v : b[i], t));
+  if (a && b && Array.isArray(a.t) && Array.isArray(b.t)) return Object.assign({}, a, { t: a.t.map((v, i) => mix(v, b.t[i], t)) });
+  return t < 0.5 ? a : b;
+}
+function poseParams(e, u) {
+  const base = BASE[e.base] || BASE.stand;
+  const A = Object.assign({}, base, e.P || {}, e.A || {});
+  const B = Object.assign({}, base, e.P || {}, e.B || {});
+  const out = {};
+  const keys = new Set([...Object.keys(A), ...Object.keys(B)]);
+  for (const k of keys) {
+    const a = A[k], b = B[k];
+    if (typeof a === 'number' && typeof b === 'number') out[k] = mix(a, b, u);
+    else out[k] = lerpSpec(a, b, u);
+  }
+  for (const s of ['R', 'L']) {
+    if (out['a' + s] === undefined) out['a' + s] = out.aB !== undefined ? out.aB : REST_ARM;
+    if (out['l' + s] === undefined) out['l' + s] = out.lB;
+  }
+  return out;
+}
+function machineState(e, u) {
+  const m = e.m || {};
+  const v = k => Array.isArray(m[k]) ? mix(m[k][0], m[k][1], u) : (m[k] || 0);
+  return { press: v('press'), flyR: v('flyR'), flyL: v('flyL'), lev: m.lev ? v('lev') : M.lev.rest,
+    h: m.h || 1, pad: !!m.pad, cab: m.cab || null, att: m.att || null, on: m.on || 'hands', sd: m.seatDz || 0 };
+}
+
+function dirOf(F, L, U, pitch, splay, s) {
+  const p = pitch * D2R, q = splay * D2R;
+  const base = add(mul(F, Math.sin(p)), mul(U, -Math.cos(p)));
+  return norm(add(mul(base, Math.cos(q)), mul(L, s * Math.sin(q))));
+}
+function ik2(S, T, a, b, pole) {
+  const d = sub(T, S), L = vlen(d), short = Math.max(0, L - (a + b));
+  const Lc = Math.min(Math.max(L, Math.abs(a - b) + 0.5), a + b - 0.05), u = norm(d);
+  const ca = (a * a + Lc * Lc - b * b) / (2 * a * Lc), sa = Math.sqrt(Math.max(0, 1 - ca * ca));
+  let pp = sub(pole, mul(u, dot(pole, u))); if (vlen(pp) < 1e-3) pp = [0, 0, -1]; pp = norm(pp);
+  const E = add(S, add(mul(u, a * ca), mul(pp, a * sa)));
+  return { E, H: add(S, mul(u, Lc)), short };
+}
+
+function targetPoint(t, s, ms) {
+  if (Array.isArray(t)) return [t[0], s * Math.abs(t[1]) * (t[1] < 0 ? -1 : 1) * (t.sym ? 1 : 1), t[2]];
+  switch (t) {
+    case 'press': return pressHandle(ms.press, s);
+    case 'pad': { const a = padEdge('a', s); return [a[0] + 4, s * 15, a[2] + 3]; }
+    case 'rail': return [M.rail.x + 1, M.rail.y - 3, 112];
+    case 'seat': return [70, s * 19, 54];
+  }
+  return [0, 0, 0];
+}
+
+/* Full skeleton for exercise e at phase u (0 = start A, 1 = end B). */
+function solve(e, u) {
+  const p = poseParams(e, u), ms = machineState(e, u);
+  const yaw = p.yaw * D2R, f = [Math.cos(yaw), Math.sin(yaw), 0], l = [-Math.sin(yaw), Math.cos(yaw), 0];
+  const rise = p.rise || 0;
+  let pz = p.z;
+  if (e.base === 'kneel' && p.z === undefined) { const th = (p.lR || p.lB || [0])[0]; pz = 6 + BD.th * Math.cos(th * D2R); }
+  if (e.base === 'stand') pz = (p.z === undefined ? 96 : p.z) + rise;
+  const P = [p.x, p.y, pz];
+  const tw = (p.tw || 0) * D2R;
+  const ft = add(mul(f, Math.cos(tw)), mul(l, Math.sin(tw))), lt = add(mul(l, Math.cos(tw)), mul(f, -Math.sin(tw)));
+  const le = (p.lean || 0) * D2R, sd = (p.side || 0) * D2R;
+  const tu = norm(add(add(mul(Z, Math.cos(le) * Math.cos(sd)), mul(ft, Math.sin(le))), mul(lt, Math.cos(le) * Math.sin(sd))));
+  const TL = norm(sub(lt, mul(tu, dot(lt, tu)))), ftp = norm(cross(TL, tu));
+  const N = add(P, mul(tu, BD.tor));
+  const hdir = p.flatHead ? norm([tu[0], tu[1], Math.max(tu[2], 0)]) : tu;
+  const head = add(N, mul(hdir, BD.neck + BD.head));
+  const J = { P, N, head, f, l, tu, ftp, TL, arms: {}, legs: {}, ms, p, short: 0, flyErr: 0 };
+  const rel = !!p.armRel;
+  const AF = rel ? ftp : ft, AL = rel ? TL : lt, AU = rel ? tu : Z;
+  for (const [k, s] of [['R', -1], ['L', 1]]) {
+    const S = add(add(N, mul(TL, s * BD.shW)), add(mul(tu, -3), mul(Z, p.shr || 0)));
+    const spec = p['a' + k];
+    let E, H;
+    if (spec && !Array.isArray(spec) && spec.t === 'fly') {
+      const psi = k === 'R' ? ms.flyR : ms.flyL, xy = flyXY(psi, s);
+      const Et = [xy[0], xy[1], M.fly.z0 + 4], Ht = [xy[0] + 2, xy[1], M.fly.z1];
+      E = add(S, mul(norm(sub(Et, S)), BD.ua));
+      H = add(E, mul(norm(sub(Ht, E)), BD.fa));
+      J.flyErr = Math.max(J.flyErr, vlen(sub(E, Et)), vlen(sub(H, Ht)));
+    } else if (spec && !Array.isArray(spec)) {
+      const T = targetPoint(spec.t, S[1] >= 0 ? 1 : -1, ms);
+      const pole = spec.pole ? norm(add(add(mul(f, spec.pole[0]), mul(l, s * spec.pole[1])), mul(Z, spec.pole[2])))
+        : norm(add(add(mul(Z, -1), mul(lt, s * 0.7)), mul(ft, -0.5)));
+      const r = ik2(S, T, BD.ua, BD.fa, pole); E = r.E; H = r.H; J.short = Math.max(J.short, r.short);
+    } else {
+      const a = spec || REST_ARM;
+      E = add(S, mul(dirOf(AF, AL, AU, a[0], a[1], s), BD.ua));
+      H = add(E, mul(dirOf(AF, AL, AU, a[2], a[3], s), BD.fa));
+    }
+    const fd = norm(sub(H, E));
+    const wr = (p.wr || 0) * D2R;
+    let hn = sub(Z, mul(fd, dot(Z, fd))); if (vlen(hn) < 0.1) hn = ft; hn = norm(hn);
+    const tip = add(H, mul(add(mul(fd, Math.cos(wr)), mul(hn, Math.sin(wr))), BD.hand));
+    J.arms[k] = { S, E, H, tip };
+    /* legs */
+    const Hp = add(P, mul(l, s * BD.hipW));
+    const ls = p['l' + k];
+    let K, A, toe;
+    if (e.base === 'stand' && !ls) {
+      const fo = p['f' + k] || [0, 11];
+      const At = [P[0] + f[0] * fo[0] + l[0] * s * fo[1], P[1] + f[1] * fo[0] + l[1] * s * fo[1], BD.ank + rise];
+      const r = ik2(Hp, At, BD.th, BD.sh, f); K = r.E; A = r.H; J.legShort = Math.max(J.legShort || 0, r.short);
+      toe = rise > 0 ? [A[0] + f[0] * 12, A[1] + f[1] * 12, 2] : add(A, add(mul(f, 15), [0, 0, -5]));
+    } else {
+      const g = ls || [0, 6, 0];
+      K = add(Hp, mul(dirOf(f, l, Z, g[0], g[1], s), BD.th));
+      A = add(K, mul(dirOf(f, l, Z, g[2], g[3] === undefined ? g[1] : g[3], s), BD.sh));
+      toe = add(A, mul(dirOf(f, l, Z, g[2] + 95, g[1], s), 14));
+    }
+    J.legs[k] = { Hp, K, A, toe };
+  }
+  return J;
+}
+
+/* attachment point the cable pulls on */
+function attachPoint(J, ms) {
+  if (!ms.cab) return null;
+  const o = ms.on;
+  if (o === 'R' || o === 'L') return J.arms[o].tip;
+  if (o === 'aR' || o === 'aL') return J.legs[o[1]].A;
+  return mul(add(J.arms.R.tip, J.arms.L.tip), 0.5);
+}
+
+/* ---------- views & projection ---------- */
+const VIEWS = {
+  side: { az: -90, el: 5, label: 'Side' },
+  front: { az: 0, el: 5, label: 'Front' },
+  top: { az: 0, el: 89.4, label: 'Top' },
+  q: { az: -48, el: 17, label: '3/4' }
+};
+function camera(v) {
+  const az = v.az * D2R, el = v.el * D2R;
+  const c = [Math.cos(el) * Math.cos(az), Math.cos(el) * Math.sin(az), Math.sin(el)];
+  const r = norm(cross(Z, c)), up = cross(c, r);
+  return { c, r, up };
+}
+const proj = (cam, p) => [dot(p, cam.r), dot(p, cam.up), dot(p, cam.c)];
+
+/* ---------- scene primitives ---------- */
+const STATION_PARTS = {
+  CP: ['press', 'seat', 'back'], BF: ['fly', 'seat', 'back'], LG: ['lever', 'fixR', 'seat'],
+  CB: ['armpad', 'low'], UP: ['latp', 'topfront'], LP: ['low'], PS: ['rail', 'car'], MAT: ['mat']
+};
+function boxPrims(b, g, kind) { return [{ k: 'box', b, g, kind: kind || 'frame' }]; }
+function machinePrims(e, ms) {
+  const L = [];
+  const tube = (a, b, w, g, kind) => L.push({ k: 'seg', a, b, w, g, kind: kind || 'frame' });
+  const pad = (pts, g, t) => { const n = norm(cross(sub(pts[1], pts[0]), sub(pts[3], pts[0]))); L.push({ k: 'slab', pts, low: pts.map(p => sub(p, mul(n, t || 6))), g, kind: 'pad' }); };
+  if (e.st === 'MAT') { const m = e.mat || [0, 183]; pad([[m[0], 30.5, 0.8], [m[1], 30.5, 0.8], [m[1], -30.5, 0.8], [m[0], -30.5, 0.8]], 'mat', 0.8); return L; }
+  const T = M.tower;
+  /* base */
+  tube([-32, 0, 3], [119, 0, 3], 5, 'base');
+  tube([-32, -40, 3], [-32, 40, 3], 5, 'base'); tube([0, -40, 3], [0, 40, 3], 5, 'base');
+  tube([88, -26, 3], [88, 26, 3], 5, 'base');
+  tube([-4, -24, 3], [-4, -46, 3], 5, 'base');
+  pad([[104, -12, 5], [119, -12, 5], [119, 12, 5], [104, 12, 5]], 'low', 2);
+  /* tower */
+  L.push({ k: 'box', b: [T.x[0], T.x[1], T.y[0], T.y[1], T.z[0], T.z[1]], g: 'tower', kind: 'shroud' });
+  tube([-18, 0, 172], [-18, 0, M.topZ], 5, 'frame');
+  tube([M.topX[0], 0, M.topZ], [M.topX[1], 0, M.topZ], 6, e.st === 'UP' ? 'topfront' : 'frame');
+  L.push({ k: 'dot', c: M.latP, r: 4, g: 'latp' });
+  /* main column + backrest */
+  tube(M.col.a, M.col.b, 6, 'frame');
+  for (const [z0, z1] of M.pads) {
+    const xa = colX(z0) + 2, xb = colX(z1) + 2, t = M.padT, w = M.padW;
+    pad([[xa + t, -w, z0], [xa + t, w, z0], [xb + t, w, z1], [xb + t, -w, z1]], 'back', t);
+  }
+  /* seat */
+  const sz = M.seat.z + (ms.sd || 0);
+  tube([50, 0, 3], [50, 0, sz - 4], 5, 'frame');
+  tube([colX(sz - 6), 0, sz - 6], [80, 0, sz - 6], 5, 'frame');
+  pad([[M.seat.x[0], M.seat.w, sz], [M.seat.x[1], M.seat.w, sz], [M.seat.x[1], -M.seat.w, sz], [M.seat.x[0], -M.seat.w, sz]], 'seat', 7);
+  /* fixed rollers at the seat front */
+  const F = M.fixR;
+  const fz = F.z + (ms.sd || 0);
+  tube([F.x, -F.y - 9, fz], [F.x, -F.y + 3, fz], F.r * 2, 'fixR', 'roller');
+  tube([F.x, F.y - 3, fz], [F.x, F.y + 9, fz], F.r * 2, 'fixR', 'roller');
+  /* leg lever (+ arm pad on its upper end) */
+  const Lv = M.lev, th = ms.lev;
+  const rb = leverRoller(th, 0);
+  tube(Lv.piv, rb, 5, 'lever');
+  tube([rb[0], -Lv.y - 8, rb[2]], [rb[0], -3, rb[2]], Lv.r * 2, 'lever', 'roller');
+  tube([rb[0], 3, rb[2]], [rb[0], Lv.y + 8, rb[2]], Lv.r * 2, 'lever', 'roller');
+  tube([Lv.piv[0], 0, 3], Lv.piv, 5, 'frame');
+  tube([Lv.piv[0], 0, 6], M.lowO, 3, 'low');
+  L.push({ k: 'dot', c: M.lowO, r: 3.5, g: 'low' });
+  if (ms.pad) {
+    tube(Lv.piv, [M.armPad.a[0] + 4, 0, M.armPad.a[1] - 6], 5, 'armpad');
+    const A = M.armPad.a, B = M.armPad.b, w = M.armPad.w;
+    pad([[A[0], w, A[1]], [A[0], -w, A[1]], [B[0], -w, B[1]], [B[0], w, B[1]]], 'armpad', 7);
+  }
+  /* press / butterfly arms */
+  const P = M.press;
+  const flyMode = ms.flyR > 0 || ms.flyL > 0 || e.st === 'BF';
+  if (!flyMode) {
+    const ph = ms.press;
+    tube(pressPt(ph, P.r0, -1), pressPt(ph, P.r0, 1), 5, 'press');
+    tube(P.piv, [P.piv[0], 0, P.piv[2] - P.r0], 5, 'press');
+    for (const s of [-1, 1]) {
+      tube(pressPt(ph, P.r0, s), pressPt(ph, P.r1, s), 5, 'press');
+      tube(pressPt(ph, P.pad[0], s), pressPt(ph, P.pad[1], s), 9, 'press', 'roller');
+      tube(pressPt(ph, P.r1, s), pressHandle(ph, s), 4, 'press');
+    }
+  } else {
+    const Fl = M.fly;
+    tube([Fl.hx, -Fl.hy, 152], [Fl.hx, Fl.hy, 152], 5, 'fly');
+    tube(P.piv, [Fl.hx, 0, 152], 5, 'fly');
+    for (const s of [-1, 1]) {
+      const xy = flyXY(s < 0 ? ms.flyR : ms.flyL, s);
+      tube([Fl.hx, s * Fl.hy, 152], [xy[0], xy[1], 152], 5, 'fly');
+      tube([xy[0], xy[1], 152], [xy[0], xy[1], 100], 5, 'fly');
+      tube([xy[0], xy[1], Fl.z0], [xy[0], xy[1], Fl.z1], 9, 'fly', 'roller');
+    }
+  }
+  if (e.showLat) { tube(M.latP, [M.latP[0], 0, 152], 1.2, 'frame'); tube([M.latP[0], -58, 154], [M.latP[0], 58, 154], 3, 'frame'); tube([M.latP[0], -58, 154], [M.latP[0] - 6, -62, 166], 3, 'frame'); tube([M.latP[0], 58, 154], [M.latP[0] - 6, 62, 166], 3, 'frame'); }
+  /* pulley station rail + carriage */
+  const R = M.rail;
+  tube([R.x, R.y, R.z[0]], [R.x, R.y, R.z[1]], 4, 'rail', 'chrome');
+  tube([-18, 0, 186], [R.x, R.y, 186], 4, 'frame');
+  const cz = carZ(ms.cab === 'PS' ? ms.h : 9);
+  tube([R.x, R.y, cz - 6], [R.x, R.y, cz + 6], 8, 'car');
+  L.push({ k: 'dot', c: [R.x + 2, M.carY, cz], r: 4, g: 'car' });
+  return L;
+}
+function colX(z) { const a = M.col.a, b = M.col.b; return a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2]); }
+
+function bodyPrims(e, J) {
+  const L = [], hot = new Set(e.hot || defaultHot(e));
+  const seg = (a, b, w, part) => L.push({ k: 'limb', a, b, w, part, hot: hot.has(part) });
+  for (const s of ['R', 'L']) {
+    const g = J.legs[s];
+    seg(g.Hp, g.K, BD.w.th, 'l' + s); seg(g.K, g.A, BD.w.sh, 'l' + s); seg(g.A, g.toe, 6, 'l' + s);
+  }
+  seg(J.P, J.N, BD.w.tor, 't');
+  seg(add(J.P, mul(J.l, -BD.hipW)), add(J.P, mul(J.l, BD.hipW)), 14, 't');
+  for (const s of ['R', 'L']) {
+    const a = J.arms[s];
+    seg(J.N, a.S, 10, 't'); seg(a.S, a.E, BD.w.ua, 'a' + s); seg(a.E, a.H, BD.w.fa, 'a' + s);
+    const g = handGrip(e, J, s);
+    if (!g) seg(a.H, a.tip, 7, 'a' + s);
+    else handGlyph(J, s, g, 'a' + s, hot.has('a' + s)).forEach(p => L.push(p));
+  }
+  L.push({ k: 'head', c: J.head, r: BD.head });
+  return L;
+}
+/* which grip each hand uses in this frame */
+function handGrip(e, J, s) {
+  const ms = J.ms, spec = J.p['a' + s];
+  if (e.st === 'MAT') return (e.grip === 'flat' || e.grip === 'forearms') && J.arms[s].tip[2] < 16 ? 'flat' : null;
+  if (e.st === 'BF') return 'open';
+  if (spec && !Array.isArray(spec)) return spec.t === 'press' ? (e.grip === 'hold' ? 'hold' : 'neutral') : 'hold';
+  if (ms.cab && (ms.on === 'hands' || ms.on === s) && ms.att !== 'strap') return e.grip && e.grip !== 'none' && e.grip !== 'hold' ? e.grip : 'over';
+  return null;
+}
+/* a fist with four finger stripes and a thumb; stripes run across the bar, the thumb sits on the side the grip puts it */
+function handGlyph(J, s, g, part, hot) {
+  const a = J.arms[s], G = a.tip, fd = norm(sub(a.H, a.E)), out = [];
+  const perp = (v, n) => { const r = sub(v, mul(n, dot(v, n))); return vlen(r) < 0.15 ? null : norm(r); };
+  const other = J.arms[s === 'R' ? 'L' : 'R'].tip;
+  let ax;
+  if (g === 'neutral') ax = perp(Z, fd) || perp(J.ftp, fd);
+  else if (g === 'open') ax = perp(cross(fd, Z), fd) || J.TL;
+  else if ((g === 'over' || g === 'under') && J.ms.on === 'hands' && vlen(sub(other, G)) > 12) ax = norm(sub(other, G));
+  else ax = perp(cross(fd, Z), fd) || perp(J.TL, fd) || J.TL;
+  const wd = perp(fd, ax) || fd;
+  let ts = 1;
+  const inward = dot(ax, sub(mul(add(J.P, J.N), 0.5), G)) >= 0 ? 1 : -1;
+  if (g === 'neutral') ts = dot(ax, Z) >= 0 ? 1 : -1;
+  else if (g === 'under') ts = -inward;
+  else if (g === 'both') ts = dot(ax, Z) >= 0 ? 1 : -1;
+  else ts = inward;
+  if (g === 'flat') {
+    const lx = J.l, fx = J.f, inw = dot(lx, sub(J.P, G)) >= 0 ? 1 : -1;
+    out.push({ k: 'limb', a: a.H, b: G, w: 5.5, part, hot });
+    out.push({ k: 'limb', a: add(G, mul(lx, -2.6)), b: add(G, mul(lx, 2.6)), w: 5.5, part, hot });
+    for (let i = 0; i < 4; i++) { const c = add(G, mul(lx, (i - 1.5) * 1.9)); out.push({ k: 'finger', a: c, b: add(c, mul(fx, 5)), w: 1.5, part, hot }); }
+    out.push({ k: 'finger', a: add(G, mul(lx, inw * 2.8)), b: add(G, add(mul(lx, inw * 5), mul(fx, 2))), w: 1.6, part, hot });
+    return out;
+  }
+  out.push({ k: 'limb', a: a.H, b: G, w: 5.5, part, hot });
+  if (g === 'open') {
+    out.push({ k: 'limb', a: add(G, mul(ax, -2.6)), b: add(G, mul(ax, 2.6)), w: 6, part, hot });
+    for (let i = 0; i < 4; i++) { const c = add(G, mul(ax, (i - 1.5) * 1.9)); out.push({ k: 'finger', a: c, b: add(c, mul(fd, 5.5)), w: 1.6, part, hot }); }
+    out.push({ k: 'finger', a: add(G, mul(ax, ts * 3)), b: add(G, add(mul(ax, ts * 5.5), mul(fd, 3))), w: 1.6, part, hot });
+    return out;
+  }
+  out.push({ k: 'limb', a: add(G, mul(ax, -3.6)), b: add(G, mul(ax, 3.6)), w: 6.8, part, hot });
+  for (let i = 0; i < 4; i++) { const c = add(G, mul(ax, (i - 1.5) * 2.1)); out.push({ k: 'stripe', a: add(c, mul(wd, -2.2)), b: add(c, mul(wd, 2.2)), w: 0.55 }); }
+  out.push({ k: 'thumb', a: add(G, add(mul(ax, ts * 3.2), mul(wd, -1.6))), b: add(G, add(mul(ax, ts * 5.4), mul(wd, 1.2))), w: 2.2, part, hot });
+  return out;
+}
+function defaultHot(e) {
+  const g = e.g, one = e.one;
+  if (['Quads', 'Hamstrings', 'Glutes', 'Hips', 'Calves'].includes(g)) return one ? ['l' + one] : ['lR', 'lL'];
+  if (g === 'Core') return ['t'];
+  return one ? ['a' + one] : ['aR', 'aL'];
+}
+function attachPrims(J, ms) {
+  const L = []; if (!ms.cab) return L;
+  const O = outlet(ms.cab, ms.h), at = attachPoint(J, ms);
+  L.push({ k: 'cable', a: O, b: at });
+  const Rt = J.arms.R.tip, Lt = J.arms.L.tip;
+  if (ms.att === 'lat' || ms.att === 'bar') {
+    const half = ms.att === 'lat' ? 58 : 25, mid = mul(add(Rt, Lt), 0.5);
+    let d = sub(Lt, Rt); if (vlen(d) < 8) d = J.l; d = norm(d);
+    L.push({ k: 'bar', a: add(mid, mul(d, -half)), b: add(mid, mul(d, half)), lat: ms.att === 'lat' });
+  } else if (ms.att === 'grip') {
+    L.push({ k: 'grip', c: at });
+  } else if (ms.att === 'strap') {
+    L.push({ k: 'strap', c: at });
+  }
+  return L;
+}
+
+/* ---------- renderer ---------- */
+function hull(pts) {
+  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lo = [], up = [];
+  for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); }
+  for (let i = p.length - 1; i >= 0; i--) { const q = p[i]; while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+  up.pop(); lo.pop(); return lo.concat(up);
+}
+function boxCorners(b) { const c = []; for (const x of [b[0], b[1]]) for (const y of [b[2], b[3]]) for (const z of [b[4], b[5]]) c.push([x, y, z]); return c; }
+
+function frameBounds(e, viewKey) {
+  const cam = camera(VIEWS[viewKey]);
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  const take = p => { const q = proj(cam, p); x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); };
+  for (const u of [0, 0.5, 1]) {
+    const J = solve(e, u), ms = J.ms;
+    for (const pr of machinePrims(e, ms)) {
+      if (pr.k === 'box') boxCorners(pr.b).forEach(take);
+      else if (pr.k === 'seg') { take(pr.a); take(pr.b); }
+      else if (pr.k === 'poly') pr.pts.forEach(take);
+      else if (pr.k === 'slab') { pr.pts.forEach(take); pr.low.forEach(take); }
+      else if (pr.k === 'dot') take(pr.c);
+    }
+    for (const pr of bodyPrims(e, J)) { if (pr.a) { take(pr.a); take(pr.b); } else { take(add(pr.c, [0, 0, 13])); take(add(pr.c, [0, 0, -13])); take(add(pr.c, [0, 13, 0])); take(add(pr.c, [0, -13, 0])); take(add(pr.c, [13, 0, 0])); take(add(pr.c, [-13, 0, 0])); } }
+    for (const pr of attachPrims(J, ms)) { if (pr.a) { take(pr.a); take(pr.b); } }
+  }
+  return { x0: x0 - 10, x1: x1 + 10, y0: y0 - 8, y1: y1 + 10, cam };
+}
+
+function drawScene(ctx, W, H, e, u, viewKey, C, fb) {
+  fb = fb || frameBounds(e, viewKey);
+  const cam = fb.cam;
+  const s = Math.min(W / (fb.x1 - fb.x0), H / (fb.y1 - fb.y0));
+  const ox = (W - (fb.x1 - fb.x0) * s) / 2, oy = (H - (fb.y1 - fb.y0) * s) / 2;
+  const P2 = p => { const q = proj(cam, p); return [ox + (q[0] - fb.x0) * s, H - oy - (q[1] - fb.y0) * s, q[2]]; };
+  const J = solve(e, u), ms = J.ms;
+  const active = new Set(STATION_PARTS[e.st] || []);
+  if (e.st === 'LG' && !ms.pad) active.delete('armpad');
+  ctx.clearRect(0, 0, W, H);
+  /* floor */
+  const fl = [[-60, -150, 0], [220, -150, 0], [220, 70, 0], [-60, 70, 0]].map(P2);
+  ctx.fillStyle = C.floor; ctx.beginPath(); fl.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill();
+  const items = [];
+  for (const pr of machinePrims(e, ms)) {
+    const on = active.has(pr.g);
+    if (pr.k === 'box') { const pts = boxCorners(pr.b).map(P2); items.push({ d: pts.reduce((a, p) => a + p[2], 0) / 8 - 12, draw: () => { const h = hull(pts); ctx.fillStyle = on ? C.stSoft : C.shroud; ctx.strokeStyle = on ? C.st : C.frame; ctx.lineWidth = 1; ctx.beginPath(); h.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill(); ctx.stroke(); } }); }
+    else if (pr.k === 'seg') { const a = P2(pr.a), b = P2(pr.b); items.push({ d: (a[2] + b[2]) / 2, draw: () => { ctx.strokeStyle = on ? C.st : (pr.kind === 'roller' ? C.pad : pr.kind === 'chrome' ? C.chrome : C.frame); ctx.lineWidth = Math.max(1.2, pr.w * s); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); } }); }
+    else if (pr.k === 'poly') { const pts = pr.pts.map(P2); items.push({ d: pts.reduce((a, p) => a + p[2], 0) / pts.length, draw: () => { ctx.fillStyle = on ? C.st : C.pad; ctx.strokeStyle = on ? C.st : C.padEdge; ctx.lineWidth = Math.max(1, 2.5 * s); ctx.lineJoin = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill(); ctx.stroke(); } }); }
+    else if (pr.k === 'slab') { const pts = pr.pts.concat(pr.low).map(P2); items.push({ d: pts.reduce((a, p) => a + p[2], 0) / pts.length, draw: () => { const h = hull(pts); ctx.fillStyle = on ? C.st : C.pad; ctx.strokeStyle = on ? C.st : C.padEdge; ctx.lineWidth = Math.max(1, 1.5 * s); ctx.lineJoin = 'round'; ctx.beginPath(); h.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); ctx.fill(); ctx.stroke(); } }); }
+    else if (pr.k === 'dot') { const c = P2(pr.c); items.push({ d: c[2] + 2, draw: () => { ctx.fillStyle = C.bg; ctx.strokeStyle = on ? C.st : C.frame; ctx.lineWidth = Math.max(1.2, 2 * s); ctx.beginPath(); ctx.arc(c[0], c[1], Math.max(2.2, pr.r * s), 0, 7); ctx.fill(); ctx.stroke(); } }); }
+  }
+  const tc = P2(mul(add(J.P, J.N), 0.5))[2];
+  for (const pr of bodyPrims(e, J)) {
+    if (pr.k === 'limb') { const a = P2(pr.a), b = P2(pr.b), dd = (a[2] + b[2]) / 2, far = pr.part !== 't' && dd < tc - 4;
+      items.push({ d: dd + 0.5, draw: () => { ctx.strokeStyle = pr.hot ? (far ? C.hotFar : C.hot) : (far ? C.bodyFar : C.body); ctx.lineWidth = Math.max(2, pr.w * s); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); } }); }
+    else if (pr.k === 'stripe') { const a = P2(pr.a), b = P2(pr.b); items.push({ d: (a[2] + b[2]) / 2 + 3.2, draw: () => { ctx.strokeStyle = C.gripSoft; ctx.lineWidth = Math.max(0.6, pr.w * s); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); } }); }
+    else if (pr.k === 'finger' || pr.k === 'thumb') { const a = P2(pr.a), b = P2(pr.b), far = (a[2] + b[2]) / 2 < tc - 4; items.push({ d: (a[2] + b[2]) / 2 + 3.4, draw: () => { ctx.lineCap = 'round'; ctx.strokeStyle = pr.hot ? (far ? C.hotFar : C.hot) : (far ? C.bodyFar : C.body); ctx.lineWidth = Math.max(1, pr.w * s); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); } }); }
+    else { const c = P2(pr.c), fwd = add(pr.c, add(mul(J.ftp, 8), mul(J.tu, 2))), fc = P2(fwd);
+      items.push({ d: c[2] + 1, draw: () => { ctx.fillStyle = C.body; ctx.beginPath(); ctx.arc(c[0], c[1], pr.r * s, 0, 7); ctx.fill();
+        if (fc[2] > c[2] - 2) { ctx.fillStyle = C.face; ctx.beginPath(); ctx.arc(fc[0], fc[1], Math.max(1.5, 3 * s), 0, 7); ctx.fill(); } } }); }
+  }
+  for (const pr of attachPrims(J, ms)) {
+    if (pr.k === 'cable') { const a = P2(pr.a), b = P2(pr.b); items.push({ d: Math.max(a[2], b[2]) + 30, draw: () => { ctx.strokeStyle = C.cable; ctx.lineWidth = Math.max(1, 1.1 * s); ctx.setLineDash([]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); } }); }
+    else if (pr.k === 'bar') { const a = P2(pr.a), b = P2(pr.b); items.push({ d: (a[2] + b[2]) / 2 + 3, draw: () => { ctx.strokeStyle = C.steel; ctx.lineWidth = Math.max(2, 3 * s); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); } }); }
+    else { const c = P2(pr.c); items.push({ d: c[2] + 3, draw: () => { ctx.strokeStyle = C.steel; ctx.lineWidth = Math.max(1.5, 2.2 * s); ctx.beginPath(); ctx.arc(c[0], c[1], Math.max(3, (pr.k === 'strap' ? 7 : 5) * s), 0, 7); ctx.stroke(); } }); }
+  }
+  items.sort((a, b) => a.d - b.d).forEach(it => it.draw());
+}
+
+/* ---------- checker: tests each exercise against the model ---------- */
+/* everything the drawing shows, as shapes to collide with */
+function machineColliders(e, ms) {
+  const out = [];
+  for (const pr of machinePrims(e, ms)) {
+    if (pr.k === 'seg') out.push({ g: pr.g, cap: [pr.a, pr.b], r: pr.w / 2 });
+    else if (pr.k === 'box') out.push({ g: pr.g, box: pr.b });
+    else if (pr.k === 'dot') out.push({ g: pr.g, cap: [pr.c, pr.c], r: pr.r });
+    else if (pr.k === 'slab') { const P = pr.pts, Lw = pr.low, t = vlen(sub(P[0], Lw[0]));
+      for (let i = 0; i <= 4; i++) for (let j = 0; j <= 4; j++) { const a = add(P[0], add(mul(sub(P[1], P[0]), i / 4), mul(sub(P[3], P[0]), j / 4))); const c = add(a, mul(sub(Lw[0], P[0]), 0.5)); out.push({ g: pr.g, cap: [c, c], r: Math.max(2.5, t / 2 + 1.5) }); } }
+  }
+  return out;
+}
+function colDepth(p, r, c) { if (c.box) { const b = c.box; return boxDepth(p, [b[0] - r, b[1] + r, b[2] - r, b[3] + r, b[4] - r, b[5] + r]); } return r + c.r - capDist(p, c.cap[0], c.cap[1]); }
+const SOLIDS = () => {
+  const T = M.tower, S = [];
+  S.push({ id: 'tower', box: [T.x[0], T.x[1], T.y[0], T.y[1], T.z[0], T.z[1]] });
+  S.push({ id: 'rail', cap: [[M.rail.x, M.rail.y, 0], [M.rail.x, M.rail.y, 192]], r: 3 });
+  S.push({ id: 'col', cap: [M.col.a, M.col.b], r: 3 });
+  S.push({ id: 'seat', box: [M.seat.x[0], M.seat.x[1], -M.seat.w, M.seat.w, M.seat.z - 8, M.seat.z] });
+  M.pads.forEach(([z0, z1], i) => S.push({ id: 'back', box: [colX(z1) + 2, colX(z0) + 2 + M.padT, -M.padW, M.padW, z0, z1] }));
+  S.push({ id: 'top', cap: [[M.topX[0], 0, M.topZ], [M.topX[1], 0, M.topZ]], r: 3 });
+  return S;
+};
+function capDist(p, a, b) { const ab = sub(b, a), t = Math.max(0, Math.min(1, dot(sub(p, a), ab) / (dot(ab, ab) || 1))); return vlen(sub(p, add(a, mul(ab, t)))); }
+function boxDepth(p, b) { /* >0 = inside by that much */ return Math.min(p[0] - b[0], b[1] - p[0], p[1] - b[2], b[3] - p[1], p[2] - b[4], b[5] - p[2]); }
+function segSeg(p1, q1, p2, q2) { /* min distance between segments (sampled) */ let m = 1e9; for (let i = 0; i <= 20; i++) { const p = add(p1, mul(sub(q1, p1), i / 20)); m = Math.min(m, capDist(p, p2, q2)); } return m; }
+const angleBetween = (a, b) => Math.acos(Math.max(-1, Math.min(1, dot(norm(a), norm(b))))) / D2R;
+
+function runChecks(e) {
+  const R = []; const N = 16;
+  let short = 0, fly = 0, legShort = 0, worst = { d: 0 }, cableMin = 1e9, elbowMax = 0, kneeMax = 0, padErr = 0, legRoll = { gap: 0, side: 1 }, fixGap = 0, footOff = 0, floorMin = 1e9;
+  const MAT = e.st === 'MAT';
+  const solids = MAT ? [] : SOLIDS();
+  let touchMax = 0, touchWhat = '', lowMin = 1e9;
+  const ignore = new Set(e.contact || []);
+  if (e.base === 'seat' || e.base === 'seatRev') { ignore.add('seat'); }
+  if (e.base === 'seat') { ignore.add('back'); ignore.add('fixR'); }
+  const bodyIgnore = new Set(STATION_PARTS[e.st] || []);
+  const specs = JSON.stringify([e.P, e.A, e.B]);
+  if (specs.includes('"t":"rail"')) { bodyIgnore.add('rail'); bodyIgnore.add('car'); }
+  if (specs.includes('"t":"pad"')) bodyIgnore.add('armpad');
+  if (specs.includes('"t":"press"')) bodyIgnore.add('press');
+  let cabHit = { d: 0 }, barHit = { d: 0 };
+  const frames = [];
+  for (let i = 0; i <= N; i++) frames.push(solve(e, i / N));
+  for (const J of frames) {
+    short = Math.max(short, J.short); fly = Math.max(fly, J.flyErr); legShort = Math.max(legShort, J.legShort || 0);
+    /* body points */
+    const pts = [];
+    const along = (a, b, r, tag) => { for (let t = 0; t <= 1.0001; t += 0.2) pts.push({ p: add(a, mul(sub(b, a), t)), r, tag }); };
+    along(J.P, J.N, 11, 'torso'); pts.push({ p: J.head, r: 10, tag: 'head' });
+    for (const s of ['R', 'L']) { const g = J.legs[s], a = J.arms[s]; along(g.Hp, g.K, 7, 'thigh'); along(g.K, g.A, 5, 'shank'); along(a.S, a.E, 4.5, 'ua'); along(a.E, a.H, 4, 'fa'); }
+    for (const s of ['R', 'L']) pts.push({ p: J.arms[s].tip, r: 3, tag: 'hand' });
+    const cols = MAT ? [] : machineColliders(e, J.ms);
+    for (const q of pts) {
+      for (const c of cols) {
+        if (ignore.has(c.g) || bodyIgnore.has(c.g)) continue;
+        if ((c.g === 'base' || c.g === 'low') && (q.tag === 'shank' || q.tag === 'thigh')) continue;
+        const d = colDepth(q.p, q.r, c);
+        if (d > worst.d) worst = { d, part: q.tag, solid: c.g };
+      }
+    }
+    /* cable and bar against the machine */
+    if (!MAT && J.ms.cab) {
+      const O = outlet(J.ms.cab, J.ms.h), at = attachPoint(J, J.ms), L0 = vlen(sub(at, O));
+      const skip = J.ms.cab === 'UP' ? ['latp'] : J.ms.cab === 'PS' ? ['car', 'rail'] : e.st === 'CB' ? ['low', 'armpad'] : ['low'];
+      if (L0 > 18) { const d0 = norm(sub(at, O));
+        for (let i = 0; i <= 24; i++) { const p = add(O, mul(d0, 9 + (L0 - 15) * i / 24));
+          for (const c of cols) { if (skip.includes(c.g)) continue; const d = colDepth(p, 0.6, c); if (d > cabHit.d) cabHit = { d, g: c.g }; } } }
+      for (const pr of attachPrims(J, J.ms)) if (pr.k === 'bar') {
+        for (let i = 0; i <= 20; i++) { const p = add(pr.a, mul(sub(pr.b, pr.a), i / 20));
+          for (const c of cols) { if (skip.includes(c.g)) continue; const d = colDepth(p, 1.5, c); if (d > barHit.d) barHit = { d, g: c.g }; } } }
+    }
+    if (e.base === 'seat') { /* back may lean on the backrest but not sink into it */
+      for (const q of pts.filter(q => q.tag === 'torso')) { for (const so of solids.filter(s => s.id === 'back')) { const d = boxDepth(q.p, [so.box[0] - q.r, so.box[1] + q.r, so.box[2] - q.r, so.box[3] + q.r, so.box[4] - q.r, so.box[5] + q.r]); if (d > worst.d && d > 4) worst = { d: d - 4, part: 'back', solid: 'backrest' }; } }
+    }
+    /* joints */
+    for (const s of ['R', 'L']) {
+      const a = J.arms[s], g = J.legs[s];
+      elbowMax = Math.max(elbowMax, angleBetween(sub(a.E, a.S), sub(a.H, a.E)));
+      kneeMax = Math.max(kneeMax, angleBetween(sub(g.K, g.Hp), sub(g.A, g.K)));
+      floorMin = Math.min(floorMin, g.A[2], g.K[2]);
+    }
+    /* cable clearance */
+    const ms = J.ms;
+    if (ms.cab) {
+      const O = outlet(ms.cab, ms.h), at = attachPoint(J, ms), dir = norm(sub(at, O)), L = vlen(sub(at, O));
+      const end = add(O, mul(dir, Math.max(0, L - 14)));
+      if (L > 16) {
+        const caps = [[J.P, J.N, 12], [J.head, J.head, 11]];
+        for (const s of ['R', 'L']) { const g = J.legs[s]; if (!(ms.on === 'a' + s)) { caps.push([g.Hp, g.K, 7]); caps.push([g.K, g.A, 5]); } }
+        for (const [a, b, r] of caps) cableMin = Math.min(cableMin, segSeg(O, end, a, b) - r);
+      }
+    }
+    if (MAT) {
+      const pts = { hands: [J.arms.R.tip, J.arms.L.tip], handL: [J.arms.L.tip], handR: [J.arms.R.tip], feet: [J.legs.R.A, J.legs.L.A], footL: [J.legs.L.A], footR: [J.legs.R.A],
+        toes: [J.legs.R.toe, J.legs.L.toe], knees: [J.legs.R.K, J.legs.L.K], kneeL: [J.legs.L.K], kneeR: [J.legs.R.K], elbows: [J.arms.R.E, J.arms.L.E], back: [J.N], hips: [J.P] };
+      for (const k of (e.touch || [])) for (const q of pts[k]) { const lim = k === 'back' || k === 'hips' ? 16 : 14; const over = q[2] - lim; if (over > touchMax) { touchMax = over; touchWhat = k; } }
+      lowMin = Math.min(lowMin, J.head[2] - 11, J.P[2] - 11, J.N[2] - 11);
+    }
+    /* machine contacts */
+    if (e.st === 'CB' || e.padArms) {
+      const A = M.armPad.a, B = M.armPad.b; const d2 = [B[0] - A[0], B[1] - A[1]], n = norm([-d2[1], 0, d2[0]]);
+      for (const s of ['R', 'L']) { const E = J.arms[s].E; const v = [E[0] - A[0], 0, E[2] - A[1]]; const h = dot(v, n); padErr = Math.max(padErr, Math.abs(Math.abs(h) - 4)); }
+    }
+    if (e.legRoller) {
+      const s = e.legRoller.side, g = J.legs[s], sg = g.Hp[1] >= 0 ? 1 : -1, rc = leverRoller(ms.lev, sg);
+      const ab = sub(g.A, g.K), t = Math.max(0, Math.min(1, dot(sub(rc, g.K), ab) / dot(ab, ab))), cp = add(g.K, mul(ab, t));
+      const gap = vlen(sub(rc, cp)) - (M.lev.r + 5);
+      const fwd = e.legRoller.behind ? mul(J.f, -1) : J.f;
+      const sideOk = dot(sub(rc, cp), fwd) > -2;
+      legRoll = { gap: Math.max(legRoll.gap, Math.abs(gap)), side: Math.min(legRoll.side, sideOk ? 1 : 0) };
+      if (e.legRoller.fix) { const fr = [M.fixR.x, sg * M.fixR.y, M.fixR.z]; fixGap = Math.max(fixGap, capDist(fr, g.Hp, g.K) - (M.fixR.r + 7)); }
+    }
+  }
+  const J0 = frames[0], J1 = frames[N];
+  /* 1. reach */
+  if (MAT && JSON.stringify(e).includes('"t":[')) {
+    R.push({ k: 'Reach', ok: short <= 2.5 ? 1 : 0, msg: short <= 2.5 ? 'Your hands reach the mat under your shoulders at every point.' : 'Your hands would need to reach ' + Math.round(short) + ' cm further to touch the mat.' });
+  }
+  if (MAT && e.touch) {
+    const TN = { hands: 'hands', handL: 'supporting hand', handR: 'supporting hand', feet: 'feet', footL: 'standing foot', footR: 'standing foot', toes: 'toes', knees: 'knees', kneeL: 'supporting knee', kneeR: 'supporting knee', elbows: 'elbows', back: 'upper back', hips: 'hips' };
+    const names = e.touch.map(k => TN[k]); const list = names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0];
+    R.push({ k: 'On the mat', ok: touchMax <= 0 ? 1 : 0, msg: touchMax <= 0 ? 'Your ' + list + ' stay on the mat for the whole movement.' : 'Your ' + TN[touchWhat] + ' would lift ' + Math.round(touchMax) + ' cm off the mat.' });
+  }
+  if (!MAT && e.reach !== false && (JSON.stringify(e).includes('"t":"'))) {
+    const ok = short <= 2.5 && fly <= 6;
+    R.push({ k: 'Reach', ok: ok ? 1 : 0, msg: ok ? 'Hands reach the ' + (e.st === 'BF' ? 'arm pads' : e.st === 'CP' ? 'handles' : 'hand-hold') + ' through the whole movement.' : 'The hands fall ' + Math.round(Math.max(short, fly)) + ' cm short of the ' + (e.st === 'BF' ? 'arm pads' : 'handles') + '.' });
+  }
+  if (legShort > 2) R.push({ k: 'Stance', ok: 0, msg: 'The legs can’t reach the floor at this hip height (' + Math.round(legShort) + ' cm short).' });
+  /* 2. resistance */
+  if (J0.ms.cab) {
+    const O = outlet(J0.ms.cab, J0.ms.h), d0 = vlen(sub(attachPoint(J0, J0.ms), O)), d1 = vlen(sub(attachPoint(J1, J1.ms), O));
+    const gain = d1 - d0;
+    R.push({ k: 'Resistance', ok: gain >= 6 ? 1 : 0, msg: gain >= 6 ? 'The working move pulls ' + Math.round(gain) + ' cm of cable out of the ' + CAB_NAME[J0.ms.cab] + ', so the stack resists it.' : 'The working move only pulls ' + Math.round(gain) + ' cm of cable, so the weight barely resists it.' });
+  } else if (e.st === 'CP' || e.st === 'BF' || e.st === 'LG') {
+    const m = e.m || {}; const k = e.st === 'CP' ? 'press' : e.st === 'BF' ? (m.flyR ? 'flyR' : 'flyL') : 'lev';
+    const r = m[k] ? m[k][1] - m[k][0] : 0;
+    R.push({ k: 'Resistance', ok: r > 0 ? 1 : 0, msg: r > 0 ? 'You move the ' + (e.st === 'CP' ? 'press arms forward' : e.st === 'BF' ? 'arm pads inward' : 'leg lever up') + ', the direction the weight stack resists.' : 'This movement doesn’t load the weight stack.' });
+  }
+  /* 3. contact with the machine part */
+  if (e.st === 'CB' || e.padArms) R.push({ k: 'Arm pad', ok: padErr <= 7 ? 1 : 0, msg: padErr <= 7 ? 'Upper arms rest on the arm pad for the whole curl.' : 'The elbows lift ' + Math.round(padErr) + ' cm off the arm pad.' });
+  if (e.legRoller) {
+    const ok = legRoll.gap <= 7 && legRoll.side === 1 && fixGap <= 6;
+    R.push({ k: 'Leg roller', ok: ok ? 1 : 0, msg: ok ? (e.legRoller.behind ? 'The lever roller stays behind the lower calf and the thigh stays against the fixed rollers.' : 'The lever roller stays on the front of the lower shin.') : 'The lever roller loses contact with the leg (' + Math.round(Math.max(legRoll.gap, fixGap)) + ' cm).' });
+  }
+  /* 4. cable path */
+  if (J0.ms.cab) R.push({ k: 'Cable path', ok: cableMin >= -1 ? 1 : cableMin >= -6 ? 2 : 0, msg: cableMin >= -1 ? 'The cable runs clear of your body.' : cableMin >= -6 ? 'The cable brushes your body; shift your stance slightly.' : 'The cable runs through your body in this position.' });
+  if (J0.ms.cab) {
+    R.push({ k: 'Cable vs machine', ok: cabHit.d <= 1 ? 1 : cabHit.d <= 3 ? 2 : 0, msg: cabHit.d <= 1 ? 'The cable runs clear of the frame, arms and pads.' : cabHit.d <= 3 ? 'The cable rubs against the ' + SOLID_NAME[cabHit.g] + '.' : 'The cable would run through the ' + SOLID_NAME[cabHit.g] + '.' });
+    if (J0.ms.att === 'lat' || J0.ms.att === 'bar') R.push({ k: 'Bar', ok: barHit.d <= 1 ? 1 : barHit.d <= 3 ? 2 : 0, msg: barHit.d <= 1 ? 'The bar clears every part of the machine.' : barHit.d <= 3 ? 'The bar brushes the ' + SOLID_NAME[barHit.g] + '.' : 'The bar would hit the ' + SOLID_NAME[barHit.g] + '.' });
+  }
+  /* 5. space */
+  if (!MAT) R.push({ k: 'Space', ok: worst.d <= 2 ? 1 : worst.d <= 6 ? 2 : 0, msg: worst.d <= 2 ? 'Your body clears the frame, tower, rail, arms and pads.' : (worst.d <= 6 ? 'Tight: your ' + worst.part + ' comes close to the ' + SOLID_NAME[worst.solid] + '.' : 'Your ' + worst.part + ' would hit the ' + SOLID_NAME[worst.solid] + ' (' + Math.round(worst.d) + ' cm).') });
+  /* 6. joints */
+  const jok = elbowMax <= 158 && kneeMax <= 158;
+  R.push({ k: 'Joints', ok: jok ? 1 : 0, msg: jok ? 'Elbows and knees stay in a normal range (max ' + Math.round(Math.max(elbowMax, kneeMax)) + '° of bend).' : 'Needs more than 158° of joint bend.' });
+  if (floorMin < -3 || lowMin < -3) R.push({ k: 'Floor', ok: 0, msg: 'Part of your body would go through the floor.' });
+  return R;
+}
+const CAB_NAME = { UP: 'upper pulley', LP: 'low front pulley', PS: 'pulley station' };
+const SOLID_NAME = { tower: 'weight tower', rail: 'pulley station rail', col: 'main column', seat: 'seat', back: 'backrest', top: 'top frame', backrest: 'backrest',
+  frame: 'frame', topfront: 'top frame', latp: 'upper pulley', press: 'press arms', fly: 'butterfly arms', lever: 'leg lever', fixR: 'seat rollers', armpad: 'arm pad', base: 'base frame', low: 'low pulley', car: 'pulley carriage', mat: 'mat' };
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { M, BD, solve, runChecks, machinePrims, bodyPrims, attachPrims, VIEWS, camera, proj, frameBounds, drawScene, outlet, carZ, HOLE_NAMES, STATION_PARTS };
+
+/* ===== Exercises on the Unit 6 model =====
+   ev: 'photo' = seen in the manufacturer's photos; flag = hardware detail still unconfirmed.
+   Arm spec [upper-arm pitch, splay, forearm pitch, splay]: pitch 0 = straight down, 90 = forward, 180 = up, negative = back.
+   Leg spec [thigh pitch, splay, shank pitch]. */
+const EX = [
+/* ---------------- CHEST ---------------- */
+{ n: 'Seated chest press', g: 'Chest', st: 'CP', ev: 'photo', view: 'q', base: 'seat', m: { press: [0, 30] },
+  P: { aB: { t: 'press' } },
+  how: 'Sit back against the pads and take the two handles at chest height. Press forward until your arms are almost straight, then let the arms come back until the handles are level with your chest.',
+  watch: 'Don’t lock your elbows or let your shoulders roll forward off the backrest. Keep your wrists straight.' },
+{ n: 'Butterfly', g: 'Chest', st: 'BF', ev: 'photo', view: 'q', base: 'seat', m: { flyR: [0, 1], flyL: [0, 1] },
+  P: { aB: { t: 'fly' } },
+  how: 'Sit tall with your forearms against the upright arm pads and your elbows level with your shoulders. Squeeze the pads together in front of your face, hold for a moment, then open slowly.',
+  watch: 'Push with your forearms, not your hands. Keep your back on the pads and don’t let the stack crash when you open.' },
+{ n: 'Single-arm butterfly', g: 'Chest', st: 'BF', view: 'q', base: 'seat', one: 'R', m: { flyR: [0, 1], flyL: [0, 0] },
+  P: { aB: { t: 'fly' } },
+  how: 'Same set-up as the butterfly, but bring one arm pad to the middle at a time while the other forearm rests on its pad.',
+  watch: 'Keep your torso square; don’t twist toward the working arm. Use a lighter weight than for the two-arm version.' },
+{ n: 'Single-arm cable press', g: 'Chest', st: 'PS', ev: 'photo', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 10, att: 'grip', on: 'R' },
+  P: { x: 40, y: -90, yaw: -90, z: 93, fR: [-18, 11], fL: [24, 11], aL: [10, 14, 20, 10] },
+  A: { aR: [-78, 52, 92, 0] }, B: { aR: [86, 4, 88, 0] },
+  how: 'Stand with your back to the pulley station in a short split stance, the handle beside your chest. Press it straight forward until your arm is almost straight, then let it come back under control.',
+  watch: 'Brace your stomach so the cable doesn’t twist you. Keep the elbow at about 45° from your side, not flared straight out.' },
+{ n: 'Single-arm cable fly', g: 'Chest', st: 'PS', view: 'top', base: 'stand', one: 'R', m: { cab: 'PS', h: 10, att: 'grip', on: 'R' },
+  P: { x: 40, y: -90, yaw: -90, z: 93, fR: [-18, 11], fL: [24, 11], aL: [10, 14, 20, 10] },
+  A: { aR: [88, 82, 90, 70] }, B: { aR: [88, 6, 88, 2] },
+  how: 'Stand with your back to the pulley station, arm out to the side at chest height with a soft elbow. Sweep the hand forward in a wide arc until it is in front of your chest, then open slowly.',
+  watch: 'Keep the elbow bend fixed so it stays a fly, not a press. Don’t let the arm go behind your shoulder line at the start.' },
+{ n: 'Single-arm crossover, high to low', g: 'Chest', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 16, att: 'grip', on: 'R' },
+  P: { x: 40, y: -88, yaw: -90, z: 93, lean: 10, fR: [-18, 11], fL: [24, 11], aL: [10, 14, 20, 10] },
+  A: { aR: [196, 48, 196, 44] }, B: { aR: [38, -16, 36, -16] },
+  how: 'Set the pulley at the top and stand with your back to it. Pull the handle down and across your body until your hand is in front of the opposite hip.',
+  watch: 'Keep a slight bend in the elbow and don’t hunch forward to finish the move.' },
+{ n: 'Single-arm crossover, low to high', g: 'Chest', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 40, y: -88, yaw: -90, z: 93, fR: [-18, 11], fL: [24, 11], aL: [10, 14, 20, 10] },
+  A: { aR: [-14, 42, -14, 40] }, B: { aR: [138, -14, 138, -14] },
+  how: 'Set the pulley at the bottom and stand with your back to it. Sweep the handle up and across to the height of your chin, then lower slowly.',
+  watch: 'Don’t shrug or lean back. Move the arm, not your hips.' },
+
+/* ---------------- BACK ---------------- */
+{ n: 'Lat pulldown, wide grip', g: 'Back', st: 'UP', ev: 'photo', view: 'q', base: 'seatRev', m: { cab: 'UP', att: 'lat' },
+  A: { aB: { t: [66, 48, 156], pole: [0, 1, -0.4] } }, B: { aB: { t: [64, 48, 122], pole: [0, 1, -0.4] } },
+  how: 'Sit on the seat facing the backrest, legs on either side of the column. Take the lat bar wider than your shoulders and pull it down to your upper chest, leading with your elbows.',
+  watch: 'Don’t lean far back or yank the bar. Let it rise slowly until your arms are straight.' },
+{ n: 'Lat pulldown, close grip', g: 'Back', st: 'UP', view: 'q', base: 'seatRev', m: { cab: 'UP', att: 'lat' },
+  P: { lean: -16 },
+  A: { aB: { t: [70, 22, 164], pole: [0.1, 0.45, -0.9] } }, B: { aB: { t: [68, 22, 120], pole: [0.1, 0.45, -0.9] } },
+  how: 'Same seat as the wide pulldown, hands about shoulder-width on the bar. Pull to your chest with your elbows passing close to your ribs.',
+  watch: 'Keep your chest up; don’t curl forward to reach the bar.' },
+{ n: 'Underhand lat pulldown', g: 'Back', st: 'UP', view: 'q', base: 'seatRev', m: { cab: 'UP', att: 'lat' },
+  P: { lean: -16 },
+  A: { aB: { t: [70, 24, 164], pole: [0.1, 0.4, -0.9] } }, B: { aB: { t: [68, 24, 118], pole: [0.1, 0.4, -0.9] } },
+  how: 'Face the backrest, palms toward you at shoulder width. Pull the bar to your upper chest, elbows close to your sides.',
+  watch: 'Don’t swing your torso back; the biceps will try to take over if you rush.' },
+{ n: 'Behind-the-neck pulldown', g: 'Back', st: 'UP', view: 'side', base: 'seatRev', m: { cab: 'UP', att: 'lat' }, caution: 1,
+  A: { aB: { t: [68, 48, 156], pole: [0, 1, -0.4] } }, B: { aB: { t: [86, 48, 126], pole: [0, 1, -0.4] } },
+  how: 'Face the backrest with a wide grip, tilt your head slightly forward and pull the bar down behind your head to the base of your neck.',
+  watch: 'Only do this if it feels comfortable in your shoulders. Use a light weight and stop if it pinches.' },
+{ n: 'Single-arm lat pulldown', g: 'Back', st: 'UP', view: 'q', base: 'seatRev', one: 'R', m: { cab: 'UP', att: 'grip', on: 'R' },
+  P: { aL: [40, 22, 70, 22] },
+  A: { aR: { t: [66, 20, 164], pole: [0, 1, -0.6] } }, B: { aR: { t: [64, 28, 116], pole: [0, 1, -0.6] } },
+  how: 'Clip a single grip to the upper pulley. Face the backrest and pull your elbow down to your side, then let the arm rise all the way.',
+  watch: 'Don’t lean sideways or twist; keep your shoulder down, away from your ear.' },
+{ n: 'Straight-arm pulldown', g: 'Back', st: 'UP', view: 'side', base: 'stand', m: { cab: 'UP', att: 'lat' },
+  P: { x: 140, y: 0, yaw: 180, lean: 25, z: 92, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [124, 12, 124, 12] }, B: { aB: [12, 12, 12, 12] },
+  how: 'Stand in front of the machine past the foot plate, hips slightly back. With straight arms, sweep the lat bar from head height down to your thighs.',
+  watch: 'Keep the elbows almost straight and fixed. Don’t bend your back to push the bar down.' },
+{ n: 'Seated low row', g: 'Back', st: 'PS', ev: 'photo', view: 'front', base: 'floor', m: { cab: 'PS', h: 1, att: 'grip', on: 'hands' },
+  P: { x: 5, y: -114, yaw: 90 },
+  A: { lean: 24, aB: [86, -6, 86, -6] }, B: { lean: -4, aB: [-42, 12, 86, -4] },
+  how: 'Set the pulley at the bottom and sit on the floor facing it, feet against the rail’s base and knees slightly bent. Pull the handle to your stomach, then reach forward again.',
+  watch: 'Sit tall at the end of each rep. Don’t rock back and forth to move the weight.' },
+{ n: 'Single-arm seated row', g: 'Back', st: 'PS', view: 'front', base: 'floor', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -114, yaw: 90, lB: [112, 18, 70], aL: [40, 30, 60, 20] },
+  A: { lean: 20, aR: [86, -12, 86, -12] }, B: { lean: -2, aR: [-44, 6, 86, -8] },
+  how: 'Sit on the floor facing the pulley station with the pulley at the bottom. Row one handle to your side, elbow close.',
+  watch: 'Don’t twist your torso to finish the rep; your shoulders stay level.' },
+{ n: 'Wide-grip floor row', g: 'Back', st: 'LP', view: 'side', base: 'floor', m: { cab: 'LP', att: 'lat', on: 'hands' },
+  P: { x: 196, y: 0, yaw: 180 },
+  A: { lean: 22, aB: [84, 26, 84, 26] }, B: { lean: -4, aB: [-30, 70, 80, 20] },
+  how: 'Clip the lat bar to the low pulley at the front. Sit on the floor facing the machine with your feet against the foot plate and row the bar to your lower chest.',
+  watch: 'Keep your back straight and squeeze your shoulder blades together at the end.' },
+{ n: 'Standing single-arm row', g: 'Back', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 8, att: 'grip', on: 'R' },
+  P: { x: 5, y: -124, yaw: 90, lean: 28, z: 90, fR: [-24, 12], fL: [22, 12], aL: [62, 12, 40, 12] },
+  A: { aR: [80, 2, 80, 2] }, B: { aR: [-56, 10, 80, 0] },
+  how: 'Set the pulley at waist height. Face it in a split stance, lean forward slightly with a flat back and row the handle to your hip.',
+  watch: 'Keep your spine neutral and your hips still; don’t let the shoulder creep up.' },
+{ n: 'Face pull', g: 'Back', st: 'PS', view: 'q', base: 'stand', m: { cab: 'PS', h: 14, att: 'grip', on: 'hands' },
+  P: { x: 5, y: -118, yaw: 90, fR: [-14, 12], fL: [16, 12] },
+  A: { aB: [100, -8, 100, -8] }, B: { aB: [92, 76, 172, 66] },
+  how: 'Set the pulley at face height and hold the handle with both hands. Pull it toward your forehead with your elbows high and wide.',
+  watch: 'Don’t lean back. Use a light weight and squeeze your upper back at the end.' },
+
+/* ---------------- SHOULDERS ---------------- */
+{ n: 'Cable lateral raise', g: 'Shoulders', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: -22, y: -66, yaw: 0, aL: [30, 16, 50, 8] },
+  A: { aR: [10, -20, 12, -20] }, B: { aR: [6, 86, 6, 86] },
+  how: 'Stand side-on with the pulley station on your left, pulley at the bottom. Take the handle in your right hand in front of your hips and raise the arm out to shoulder height.',
+  watch: 'Lead with the elbow and stop at shoulder height. Don’t swing or shrug.' },
+{ n: 'Cable front raise', g: 'Shoulders', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 134, y: 0, yaw: 0, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [6, 10, 6, 10] }, B: { aB: [90, 10, 90, 10] },
+  how: 'Clip the curl bar to the low pulley and stand facing away from the machine with the cable between your feet. Raise the bar in front of you to shoulder height.',
+  watch: 'Keep your arms straight but not locked, and don’t lean back to lift it.' },
+{ n: 'Single-arm rear-delt fly', g: 'Shoulders', st: 'PS', view: 'top', base: 'stand', one: 'L', m: { cab: 'PS', h: 12, att: 'grip', on: 'L' },
+  P: { x: 6, y: -96, yaw: 90, fR: [-12, 12], fL: [12, 12], aR: [20, 20, 40, 10] },
+  A: { aL: [90, -30, 90, -30] }, B: { aL: [90, 84, 90, 84] },
+  how: 'Set the pulley at shoulder height and face it. Hold the handle with your left hand reaching slightly across, then sweep the arm out to your left side.',
+  watch: 'Move from the shoulder with a nearly straight arm; don’t row it with your elbow.' },
+{ n: 'Upright row', g: 'Shoulders', st: 'LP', view: 'q', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 124, y: 0, yaw: 180, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [4, 10, 4, 6] }, B: { aB: [62, 72, 160, -58] },
+  how: 'Clip the curl bar to the low pulley and face the machine. Pull the bar up along your body to chest height with your elbows leading.',
+  watch: 'Keep your elbows no higher than your shoulders and the bar close to your body.' },
+{ n: 'Single-arm shoulder press', g: 'Shoulders', st: 'PS', view: 'front', base: 'stand', one: 'L', m: { cab: 'PS', h: 3, att: 'grip', on: 'L' },
+  P: { x: 8, y: -70, yaw: 0, aR: [20, 24, 40, 14] },
+  A: { aL: [14, 68, 176, 2] }, B: { aL: [176, 8, 178, 4] },
+  how: 'Set the pulley low and stand side-on with it on your left. Hold the handle at your left shoulder and press it straight overhead.',
+  watch: 'Don’t lean away from the pulley or arch your lower back.' },
+{ n: 'Shoulder rotation', g: 'Shoulders', st: 'PS', view: 'top', base: 'stand', one: 'R', m: { cab: 'PS', h: 10, att: 'grip', on: 'R' },
+  P: { x: -18, y: -94, yaw: 0, aL: [12, 12, 30, 8] },
+  A: { aR: [2, 0, 90, -48] }, B: { aR: [2, 0, 90, 62] },
+  how: 'Set the pulley at elbow height, stand side-on with it on your left and take the handle in your right hand. Keep the elbow at your side and rotate the forearm out to the right.',
+  watch: 'Use a very light weight and keep the elbow pinned to your side.' },
+{ n: 'Cable shrug', g: 'Shoulders', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 124, y: 0, yaw: 180, fR: [0, 12], fL: [0, 12], aB: [3, 12, 3, 12] },
+  A: { shr: 0 }, B: { shr: 7 },
+  how: 'Clip the curl bar to the low pulley, face the machine and hold the bar at your thighs with straight arms. Lift your shoulders straight up toward your ears, hold, then lower.',
+  watch: 'Don’t roll your shoulders or bend your elbows.' },
+{ n: 'Cable Y-raise', g: 'Shoulders', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: -22, y: -66, yaw: 0, aL: [30, 16, 50, 8] },
+  A: { aR: [10, -20, 12, -20] }, B: { aR: [150, 42, 150, 42] },
+  how: 'Same set-up as the lateral raise. Raise your straight arm up and out at an angle so it ends in a Y shape above your shoulder.',
+  watch: 'Keep your ribs down and use a light weight; the movement is small and strict.' },
+{ n: 'Machine shoulder press', g: 'Shoulders', st: 'CP', view: 'q', base: 'seat', ev: 'user', m: { press: [0, 26], seatDz: -8 },
+  P: { z: 53, x: 43, lB: [80, 14, 0], aB: { t: 'press' } },
+  how: 'Lower the seat as far as it goes so the handles start at shoulder height, then press them forward and up.',
+  watch: 'The handles move forward in an arc, so the press goes forward and up rather than straight overhead. Keep your back on the pad and don’t shrug.' },
+
+/* ---------------- BICEPS ---------------- */
+{ n: 'Preacher curl', g: 'Biceps', st: 'CB', ev: 'photo', view: 'side', base: 'seat', m: { pad: 1, cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 38, lean: 46, lB: [90, 22, 0] },
+  A: { aB: [48, 8, 26, 8] }, B: { aB: [48, 8, 170, 4] },
+  how: 'Fit the arm pad on the leg lever and clip the curl bar to the low pulley with the chain. Sit, lean forward with your upper arms flat on the pad and curl the bar up to your shoulders.',
+  watch: 'Keep your elbows on the pad and stop just before the arms lock at the bottom.' },
+{ n: 'Reverse preacher curl', g: 'Biceps', st: 'CB', view: 'side', base: 'seat', m: { pad: 1, cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 38, lean: 46, lB: [90, 22, 0] },
+  A: { aB: [48, 8, 26, 8] }, B: { aB: [48, 8, 150, 4] },
+  how: 'Same set-up as the preacher curl but with an overhand grip. Curl the bar up with your knuckles leading.',
+  watch: 'Use a lighter weight and keep your wrists straight.' },
+{ n: 'Standing cable curl', g: 'Biceps', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 126, y: 0, yaw: 180, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [4, 10, 16, 10] }, B: { aB: [10, 10, 152, 6] },
+  how: 'Clip the curl bar to the low pulley, stand on or just behind the foot plate facing the machine and curl the bar to your shoulders.',
+  watch: 'Keep your elbows at your sides and don’t swing your hips.' },
+{ n: 'Single-arm cable curl', g: 'Biceps', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -90, yaw: 90, aL: [10, 12, 20, 10] },
+  A: { aR: [4, 6, 16, 6] }, B: { aR: [10, 6, 152, 4] },
+  how: 'Set the pulley at the bottom, face it and curl one handle up to your shoulder.',
+  watch: 'Keep your elbow still and don’t lean back.' },
+{ n: 'Hammer curl', g: 'Biceps', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -90, yaw: 90, aL: [10, 12, 20, 10] },
+  A: { aR: [4, 2, 16, 2] }, B: { aR: [10, 2, 150, 2] },
+  how: 'Same as the single-arm cable curl, but hold the handle with your thumb on top.',
+  watch: 'Keep your wrist straight and your elbow pinned.' },
+{ n: 'Reverse curl', g: 'Biceps', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 126, y: 0, yaw: 180, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [4, 10, 16, 10] }, B: { aB: [10, 10, 138, 6] },
+  how: 'Face the machine with the curl bar on the low pulley and an overhand grip. Curl the bar up with your knuckles leading.',
+  watch: 'Use a lighter weight than for normal curls and keep your wrists straight.' },
+{ n: 'High-cable curl', g: 'Biceps', st: 'PS', view: 'front', base: 'stand', one: 'L', m: { cab: 'PS', h: 12, att: 'grip', on: 'L' },
+  P: { x: 6, y: -124, yaw: 0, aR: [10, 14, 20, 10] },
+  A: { aL: [4, 86, 4, 86] }, B: { aL: [4, 86, 172, -34] },
+  how: 'Set the pulley a little above shoulder height and stand side-on with it on your left. Raise the arm toward it and curl the handle toward your head.',
+  watch: 'Keep the upper arm level and still; only the forearm moves.' },
+{ n: 'Bayesian curl', g: 'Biceps', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -82, yaw: -90, z: 93, fR: [20, 11], fL: [-16, 11], aL: [10, 14, 20, 10] },
+  A: { aR: [-28, 8, -26, 8] }, B: { aR: [-28, 8, 118, 6] },
+  how: 'Set the pulley at the bottom and stand facing away from it, one foot forward. Let the arm hang slightly behind you and curl the handle forward.',
+  watch: 'Keep the elbow behind your body for the whole rep. Go light; the stretch at the start is the point.' },
+
+/* ---------------- TRICEPS ---------------- */
+{ n: 'Triceps pushdown', g: 'Triceps', st: 'UP', view: 'side', base: 'stand', m: { cab: 'UP', att: 'lat', on: 'hands' },
+  P: { x: 122, y: 0, yaw: 180, lean: 12, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [8, 12, 102, 4] }, B: { aB: [8, 12, 4, 4] },
+  how: 'Take the arm pad off the leg lever. Stand in front of the machine facing it, elbows at your sides, and push the lat bar down until your arms are straight.',
+  watch: 'Keep your elbows pinned; don’t lean over the bar to force it down.' },
+{ n: 'Reverse-grip pushdown', g: 'Triceps', st: 'UP', view: 'side', base: 'stand', m: { cab: 'UP', att: 'lat', on: 'hands' },
+  P: { x: 122, y: 0, yaw: 180, lean: 10, fR: [0, 12], fL: [0, 12] },
+  A: { aB: [8, 10, 104, 4] }, B: { aB: [8, 10, 4, 4] },
+  how: 'Same position as the pushdown, palms facing up on the bar. Push down until your arms are straight.',
+  watch: 'Use a lighter weight and keep your wrists straight.' },
+{ n: 'Single-arm pushdown', g: 'Triceps', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 16, att: 'grip', on: 'R' },
+  P: { x: 5, y: -80, yaw: 90, lean: 8, aL: [12, 12, 30, 10] },
+  A: { aR: [8, 4, 106, 0] }, B: { aR: [8, 4, 4, 0] },
+  how: 'Set the pulley at the top and face it. Push one handle down until your arm is straight, elbow at your side.',
+  watch: 'Don’t twist toward the working arm; keep the elbow still.' },
+{ n: 'Overhead triceps extension', g: 'Triceps', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 11, att: 'grip', on: 'R' },
+  P: { x: 5, y: -96, yaw: -90, lean: 18, z: 93, fR: [22, 12], fL: [-18, 12], aL: [10, 14, 20, 10] },
+  A: { aR: [166, 8, -52, 8] }, B: { aR: [166, 8, -194, 6] },
+  how: 'Set the pulley a little below head height and stand facing away from it. With the handle behind your head, straighten your arm overhead.',
+  watch: 'Keep your elbow pointing forward and your ribs down; don’t arch your lower back.' },
+{ n: 'Cable kickback', g: 'Triceps', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -108, yaw: 90, lean: 58, z: 90, fR: [-22, 12], fL: [20, 12], aL: [56, 10, 40, 10] },
+  A: { aR: [-74, 6, 2, 6] }, B: { aR: [-74, 6, -74, 6] },
+  how: 'Set the pulley at the bottom, face it and hinge forward with a flat back. Keep your upper arm along your body and straighten the forearm back.',
+  watch: 'Only the forearm moves. Keep your back flat and don’t swing the upper arm.' },
+
+/* ---------------- FOREARMS ---------------- */
+{ n: 'Wrist curl over the arm pad', g: 'Forearms', st: 'CB', view: 'side', base: 'seat', padArms: 1, m: { pad: 1, cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 46, lean: 22, lB: [90, 22, 0], aB: [44, 8, 50, 8] },
+  A: { wr: -60 }, B: { wr: 40 },
+  how: 'Fit the arm pad and clip the curl bar to the low pulley. Rest your forearms on the pad, palms up, hands just past the edge, and curl your wrists up.',
+  watch: 'Keep your forearms on the pad. Small, slow reps with a light weight.' },
+{ n: 'Reverse wrist curl', g: 'Forearms', st: 'CB', view: 'side', base: 'seat', padArms: 1, m: { pad: 1, cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 46, lean: 22, lB: [90, 22, 0], aB: [44, 8, 50, 8] },
+  A: { wr: -50 }, B: { wr: 28 },
+  how: 'Same set-up as the wrist curl, but palms down. Lift the backs of your hands up.',
+  watch: 'Use an even lighter weight and stop if your wrists ache.' },
+
+/* ---------------- QUADS ---------------- */
+{ n: 'Leg extension', g: 'Quads', st: 'LG', ev: 'photo', view: 'side', base: 'seat', m: { lev: [12, 88] }, legRoller: { side: 'R' },
+  P: { aB: [24, 34, 26, 34] },
+  A: { lB: [90, 6, 0] }, B: { lB: [90, 6, 76] },
+  how: 'Take the arm pad off. Sit back with your knees in line with the lever pivot and the rollers just above your ankles. Straighten your legs, hold, then lower slowly.',
+  watch: 'Don’t snap the knees straight or let the weights slam down. Keep your hips on the seat.' },
+{ n: 'Single-leg extension', g: 'Quads', st: 'LG', view: 'side', base: 'seat', one: 'R', m: { lev: [12, 88] }, legRoller: { side: 'R' },
+  P: { aB: [24, 34, 26, 34], lL: [90, 8, 0] },
+  A: { lR: [90, 6, 0] }, B: { lR: [90, 6, 76] },
+  how: 'Same set-up as the leg extension, but lift with one leg while the other rests behind the roller.',
+  watch: 'Use about half the weight of the two-leg version and keep your hips level.' },
+{ n: 'Cable squat', g: 'Quads', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 134, y: 0, yaw: 180, fR: [0, 18], fL: [0, 18], aB: [36, 16, 158, -12] },
+  A: { z: 60, lean: 32 }, B: { z: 96, lean: 4 },
+  how: 'Clip the curl bar to the low pulley and hold it at your chest. Stand with feet shoulder-width, sit your hips back and down until your thighs are level, then stand up.',
+  watch: 'Keep your heels down, knees over your toes and chest up.' },
+{ n: 'Cable reverse lunge', g: 'Quads', st: 'LP', view: 'side', base: 'stand', one: 'R', hot: ['lL'], m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { y: 0, yaw: 180, aB: [36, 16, 158, -12] },
+  A: { x: 140, z: 56, lean: 8, fL: [12, 10], fR: [-50, 10] }, B: { x: 128, z: 96, lean: 2, fL: [0, 10], fR: [0, 10] },
+  how: 'Hold the curl bar at your chest, facing the machine. Step back with one leg and lower until both knees are bent about 90°, then push back up.',
+  watch: 'Keep the front knee over the ankle and your torso tall.' },
+
+/* ---------------- HAMSTRINGS ---------------- */
+{ n: 'Standing leg curl', g: 'Hamstrings', st: 'LG', ev: 'photo', view: 'side', base: 'stand', one: 'R', m: { lev: [24, 102] }, legRoller: { side: 'R', behind: 1, fix: 1 }, contact: ['seat'],
+  P: { x: 94, y: 0, yaw: 180, lean: 10, fL: [0, 11], aB: { t: 'press' } },
+  A: { lR: [6, 4, 0] }, B: { lR: [6, 4, -96] },
+  how: 'Set the lever further forward so its roller sits behind your lower calf. Stand facing the seat with the front of your thigh against the fixed rollers, hold the handles, and curl your heel up.',
+  watch: 'Keep your thigh against the rollers and your hips still. Do all reps on one leg, then switch.' },
+{ n: 'Standing cable leg curl', g: 'Hamstrings', st: 'LP', view: 'side', base: 'stand', one: 'R', m: { cab: 'LP', att: 'strap', on: 'aR', pad: 1 },
+  P: { x: 116, y: 0, yaw: 180, lean: 24, fL: [0, 11], aB: { t: 'pad' } },
+  A: { lR: [4, 4, 4] }, B: { lR: [2, 4, -94] },
+  how: 'Put the ankle strap on and clip it to the low pulley. Face the machine, hold the arm pad and curl your heel toward your glutes.',
+  watch: 'Keep both knees level and don’t arch your back.' },
+{ n: 'Cable Romanian deadlift', g: 'Hamstrings', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { y: 0, yaw: 180 },
+  A: { x: 152, z: 90, lean: 70, fR: [8, 12], fL: [8, 12], aB: [0, 8, 0, 8] }, B: { x: 144, z: 96, lean: 2, fR: [0, 12], fL: [0, 12], aB: [2, 8, 2, 8] },
+  how: 'Hold the curl bar at your thighs, facing the machine. Push your hips back with soft knees and a flat back, then stand tall.',
+  watch: 'Don’t round your back. Keep the bar close to your legs.' },
+{ n: 'Single-leg cable deadlift', g: 'Hamstrings', st: 'PS', view: 'front', base: 'stand', one: 'R', hot: ['lL'], m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -104, yaw: 90, fL: [0, 10] },
+  A: { z: 92, lean: 78, lR: [-76, 4, -76], aR: [0, 6, 0, 6], aL: [70, 40, 70, 40] }, B: { z: 96, lean: 2, lR: [0, 4, 0], aR: [2, 6, 2, 6], aL: [10, 14, 20, 10] },
+  how: 'Set the pulley at the bottom and face it, handle in your right hand. Stand on your left leg and hinge forward while the right leg reaches back, then stand tall.',
+  watch: 'Keep your hips square to the floor and move slowly.' },
+
+/* ---------------- GLUTES ---------------- */
+{ n: 'Cable glute kickback', g: 'Glutes', st: 'LP', ev: 'photo', view: 'side', base: 'stand', one: 'R', m: { cab: 'LP', att: 'strap', on: 'aR', pad: 1 },
+  P: { x: 118, y: 0, yaw: 180, lean: 22, fL: [0, 11], aB: { t: 'pad' } },
+  A: { lR: [10, 4, 6] }, B: { lR: [-38, 4, -46] },
+  how: 'Clip the ankle strap to the low pulley at the front. Face the machine, hold the arm pad and kick the leg back, squeezing your glute.',
+  watch: 'Don’t arch your lower back; the hip does the work.' },
+{ n: 'Cable pull-through', g: 'Glutes', st: 'PS', view: 'front', base: 'stand', m: { cab: 'PS', h: 1, att: 'grip', on: 'hands' },
+  P: { x: 5, yaw: -90 },
+  A: { y: -100, z: 88, lean: 70, fR: [8, 20], fL: [8, 20], aB: [-48, -10, -48, -10] }, B: { y: -108, z: 96, lean: 0, fR: [0, 20], fL: [0, 20], aB: [4, -14, 4, -14] },
+  how: 'Set the pulley at the bottom and face away from it with the handle between your legs. Hinge your hips back, then drive them forward to stand tall.',
+  watch: 'Keep your back flat; your glutes do the work, not your arms.' },
+{ n: 'Bent-over hip extension', g: 'Glutes', st: 'LP', view: 'side', base: 'stand', one: 'R', m: { cab: 'LP', att: 'strap', on: 'aR', pad: 1 },
+  P: { x: 128, y: 0, yaw: 180, lean: 50, z: 92, fL: [0, 11], aB: { t: 'pad' } },
+  A: { lR: [22, 4, 6] }, B: { lR: [-26, 4, -20] },
+  how: 'With the ankle strap on the low pulley, hinge forward and hold the arm pad. Drive the strapped leg back until it is in line with your body.',
+  watch: 'Keep your hips square and your spine neutral.' },
+
+/* ---------------- HIPS ---------------- */
+{ n: 'Cable hip abduction', g: 'Hips', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'strap', on: 'aR' },
+  P: { x: 16, y: -62, yaw: 0, fL: [0, 10], aL: { t: 'rail' } }, contact: ['rail'],
+  A: { lR: [0, -8, 0] }, B: { lR: [0, 36, 0] },
+  how: 'Strap your right ankle to the pulley at the bottom and stand side-on with the pulley station on your left. Hold the rail and move the leg out to the side.',
+  watch: 'Don’t lean away; keep the standing knee soft.' },
+{ n: 'Cable hip adduction', g: 'Hips', st: 'PS', view: 'front', base: 'stand', one: 'L', m: { cab: 'PS', h: 1, att: 'strap', on: 'aL' },
+  P: { x: 5, y: -86, yaw: 0, fR: [0, 10], aR: [16, 20, 30, 14] },
+  A: { lL: [0, 30, 0] }, B: { lL: [0, -12, 0] },
+  how: 'Strap your left ankle (the one nearest the pulley station) at the bottom. Pull the leg in and across in front of the other.',
+  watch: 'Stay tall and keep your hips still.' },
+{ n: 'Cable hip flexion', g: 'Hips', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'strap', on: 'aR' },
+  P: { x: 5, y: -90, yaw: -90, fL: [0, 10], aB: [16, 22, 30, 14] },
+  A: { lR: [-12, 4, -12] }, B: { lR: [70, 4, 20] },
+  how: 'Strap your right ankle at the bottom and stand facing away from the pulley station. Raise the knee forward and up.',
+  watch: 'Don’t lean back; keep your core braced.' },
+
+/* ---------------- CALVES ---------------- */
+{ n: 'Standing cable calf raise', g: 'Calves', st: 'LP', view: 'side', base: 'stand', m: { cab: 'LP', att: 'bar', on: 'hands' },
+  P: { x: 126, y: 0, yaw: 180, fR: [0, 12], fL: [0, 12], aB: [3, 10, 3, 10] },
+  A: { rise: 0 }, B: { rise: 9 },
+  how: 'Hold the curl bar at your thighs, facing the machine. Rise onto your toes, pause, then lower your heels slowly.',
+  watch: 'Don’t bounce at the bottom; use the full range.' },
+{ n: 'Single-leg cable calf raise', g: 'Calves', st: 'PS', view: 'front', base: 'stand', one: 'R', m: { cab: 'PS', h: 1, att: 'grip', on: 'R' },
+  P: { x: 5, y: -70, yaw: 90, fR: [0, 9], lL: [2, 8, -78], aR: [4, 8, 6, 8], aL: { t: 'rail' } }, contact: ['rail'],
+  A: { rise: 0 }, B: { rise: 9 },
+  how: 'Face the pulley station with the handle in your right hand and your left hand on the rail. Stand on your right leg and rise onto the toes.',
+  watch: 'Keep the ankle from rolling out and move slowly.' },
+
+/* ---------------- CORE ---------------- */
+{ n: 'Kneeling cable crunch', g: 'Core', st: 'PS', view: 'front', base: 'kneel', m: { cab: 'PS', h: 16, att: 'grip', on: 'hands' },
+  P: { x: 5, y: -98, yaw: 90, armRel: 1, aB: [156, 22, 280, -66] },
+  A: { lean: 8 }, B: { lean: 68 },
+  how: 'Set the pulley at the top, kneel facing it and hold the handle at your forehead with both hands. Curl your ribs down toward your hips.',
+  watch: 'Don’t pull with your arms or sit back onto your heels.' },
+{ n: 'Woodchop, high to low', g: 'Core', st: 'PS', ev: 'photo', view: 'front', base: 'stand', m: { cab: 'PS', h: 16, att: 'grip', on: 'hands' },
+  P: { x: 12, y: -104, yaw: 0, fR: [0, 20], fL: [0, 20] },
+  A: { tw: 50, aB: [164, -16, 164, -16] }, B: { tw: -45, lean: 16, aB: [36, -22, 36, -22] },
+  how: 'Set the pulley at the top and stand side-on to it. Pull the handle down and across your body to the opposite hip, turning your back foot.',
+  watch: 'Rotate from your torso and hips, not just your arms.' },
+{ n: 'Woodchop, low to high', g: 'Core', st: 'PS', view: 'front', base: 'stand', m: { cab: 'PS', h: 1, att: 'grip', on: 'hands' },
+  P: { x: 12, y: -104, yaw: 0, fR: [0, 20], fL: [0, 20] },
+  A: { tw: 45, lean: 18, z: 90, aB: [26, -20, 26, -20] }, B: { tw: -40, lean: -2, aB: [150, -16, 150, -16] },
+  how: 'Set the pulley at the bottom, stand side-on and pull the handle up and across your body to above the opposite shoulder.',
+  watch: 'Keep your arms long and don’t lean back at the top.' },
+{ n: 'Pallof press', g: 'Core', st: 'PS', view: 'top', base: 'stand', m: { cab: 'PS', h: 10, att: 'grip', on: 'hands' },
+  P: { x: 5, y: -86, yaw: 0, fR: [0, 16], fL: [0, 16] },
+  A: { aB: [12, -6, 128, -34] }, B: { aB: [88, -14, 88, -14] },
+  how: 'Set the pulley at chest height and stand side-on to it with the handle at your chest. Press it straight out, hold for two seconds, then bring it back.',
+  watch: 'Don’t let the cable turn you; keep your hips and shoulders square.' },
+{ n: 'Standing side bend', g: 'Core', st: 'PS', view: 'front', base: 'stand', one: 'L', m: { cab: 'PS', h: 1, att: 'grip', on: 'L' },
+  P: { x: -10, y: -78, yaw: 0, fR: [0, 13], fL: [0, 13], aL: [4, 14, 4, 14], aR: [18, 30, 110, -50] },
+  A: { side: 16 }, B: { side: -22 },
+  how: 'Set the pulley at the bottom and stand side-on with the handle in the hand nearest the machine. Bend your upper body away from the machine, then return.',
+  watch: 'Keep your hips still and don’t twist. Move slowly.' },
+{ n: 'Standing cable twist', g: 'Core', st: 'PS', view: 'top', base: 'stand', m: { cab: 'PS', h: 10, att: 'grip', on: 'hands' },
+  P: { x: 5, y: -94, yaw: 0, fR: [0, 17], fL: [0, 17], aB: [86, -14, 86, -14] },
+  A: { tw: 42 }, B: { tw: -42 },
+  how: 'Set the pulley at chest height and stand side-on with straight arms holding the handle. Turn your torso away from the machine, then return slowly.',
+  watch: 'Rotate from your ribs and keep your hips facing forward.' },
+{ n: 'High-pulley side crunch', g: 'Core', st: 'PS', view: 'front', base: 'stand', one: 'L', m: { cab: 'PS', h: 16, att: 'grip', on: 'L' },
+  P: { x: 5, y: -66, yaw: 0, fR: [0, 13], fL: [0, 13], armRel: 1, aL: [168, 26, 236, -40], aR: [18, 30, 110, -50] },
+  A: { side: 12 }, B: { side: -24 },
+  how: 'Set the pulley at the top and stand side-on to it. Hold the handle beside your head with the hand nearest the machine and bend sideways away from it.',
+  watch: 'Bend sideways, not forward, and keep your hips level.' },
+{ n: 'Seated cable crunch', g: 'Core', st: 'UP', view: 'side', base: 'seat', ev: 'user', m: { cab: 'UP', att: 'lat', on: 'hands' },
+  P: { armRel: 1, aB: [40, 30, 140, -35] },
+  A: { lean: -8 }, B: { lean: 34 },
+  how: 'Sit normally on the seat and hold the lat bar at your collarbones. Curl your chest down toward your knees, then sit back up.',
+  watch: 'Curl from your stomach rather than pulling the bar down with your arms, and keep your hips on the seat.' }
+];
+
+/* ---------------- YOGA MAT (bodyweight) ---------------- */
+const POLE = [-0.6, 0.7, 0.5];
+EX.push(
+{ n: 'Push-up', g: 'Chest', st: 'MAT', view: 'side', base: 'free', touch: ['hands', 'feet'], grip: 'flat',
+  P: { y: 0, yaw: 0, aB: { t: [148, 24, 9], pole: POLE } },
+  A: { x: 100, z: 42, lean: 67, lB: [-67, 4, -67] }, B: { x: 106, z: 20, lean: 82, lB: [-82, 4, -82] },
+  how: 'Hands on the mat a little wider than your shoulders, body in one straight line from head to heels. Lower your chest toward the mat, then press back up.',
+  watch: 'Don’t let your hips sag or pike up. Keep your elbows at about 45° from your body, not flared out wide.' },
+{ n: 'Knee push-up', g: 'Chest', st: 'MAT', view: 'side', base: 'free', touch: ['hands', 'knees'], grip: 'flat',
+  P: { y: 0, yaw: 0, aB: { t: [146, 24, 9], pole: POLE } },
+  A: { x: 100, z: 28, lean: 60, lB: [-60, 4, -100] }, B: { x: 105, z: 14, lean: 80, lB: [-80, 4, -100] },
+  how: 'Same as a push-up but with your knees on the mat. Keep a straight line from your knees to your head as you lower and press.',
+  watch: 'Don’t bend at the hips. Move on to full push-ups once 15 clean reps feel easy.' },
+{ n: 'Diamond push-up', g: 'Triceps', st: 'MAT', view: 'side', base: 'free', touch: ['hands', 'feet'], grip: 'flat',
+  P: { y: 0, yaw: 0, aB: { t: [150, 6, 9], pole: [-0.8, 0.3, 0.5] } },
+  A: { x: 100, z: 42, lean: 67, lB: [-67, 4, -67] }, B: { x: 105, z: 24, lean: 80, lB: [-80, 4, -80] },
+  how: 'Push-up position with your hands close together under your chest, index fingers and thumbs almost touching. Lower with your elbows brushing your sides.',
+  watch: 'Keep your elbows tucked in. Do them on your knees if you can’t keep a straight body.' },
+{ n: 'Pike push-up', g: 'Shoulders', st: 'MAT', view: 'side', base: 'free', touch: ['hands', 'feet'], grip: 'flat',
+  P: { y: 0, yaw: 0, aB: { t: [122, 22, 9], pole: [-0.4, 0.8, 0.4] } },
+  A: { x: 70, z: 90, lean: 130, lB: [-21, 6, -21] }, B: { x: 74, z: 86, lean: 150, lB: [-24, 6, -24] },
+  how: 'Start in a push-up position, then walk your feet in so your hips point up in an upside-down V. Bend your elbows to lower the top of your head toward the mat, then press back up.',
+  watch: 'Keep your hips high and lower slowly. Stop well before your head touches the mat.' },
+{ n: 'Forearm plank', g: 'Core', st: 'MAT', view: 'side', base: 'free', touch: ['elbows', 'feet'], grip: 'forearms', hold: 1,
+  P: { x: 92, y: 0, yaw: 0, aB: [0, 6, 90, -8] },
+  A: { z: 25, lean: 79, lB: [-79, 4, -79] }, B: { z: 27, lean: 78, lB: [-78, 4, -78] },
+  how: 'Rest on your forearms with your elbows under your shoulders and your legs straight behind you on your toes. Hold your body in one straight line.',
+  watch: 'Squeeze your glutes and pull your belly button in so your lower back doesn’t sag. Breathe normally.' },
+{ n: 'Mountain climber', g: 'Core', st: 'MAT', view: 'side', base: 'free', touch: ['hands', 'footL'], grip: 'flat', one: 'R',
+  P: { x: 100, y: 0, z: 42, yaw: 0, lean: 67, aB: { t: [148, 24, 9], pole: POLE }, lL: [-67, 4, -67] },
+  A: { lR: [40, 6, -80] }, B: { lR: [80, 6, -60] },
+  how: 'From the top of a push-up, drive one knee toward your chest, tap the foot back down, then switch legs. Start slowly and speed up once you are steady.',
+  watch: 'Keep your shoulders over your hands and your hips level; don’t bounce them up and down.' },
+{ n: 'Glute bridge', g: 'Glutes', st: 'MAT', view: 'side', base: 'free', touch: ['back', 'feet'], grip: 'none',
+  P: { y: 0, yaw: 0, flatHead: 1, aB: [90, 14, 90, 14] },
+  A: { x: 100, z: 10, lean: -90, lB: [135, 8, 30] }, B: { x: 95, z: 38, lean: -122, lB: [100, 8, 25] },
+  how: 'Lie on your back with your knees bent and feet flat, hip-width apart. Push through your heels to lift your hips until your body is straight from shoulders to knees, squeeze, then lower.',
+  watch: 'Don’t arch your lower back at the top; the lift comes from your glutes. Keep your knees in line with your feet.' },
+{ n: 'Single-leg glute bridge', g: 'Glutes', st: 'MAT', view: 'side', base: 'free', touch: ['back', 'footR'], grip: 'none', one: 'R',
+  P: { y: 0, yaw: 0, flatHead: 1, aB: [90, 14, 90, 14] },
+  A: { x: 100, z: 10, lean: -90, lR: [135, 8, 30], lL: [112, 8, 112] }, B: { x: 95, z: 38, lean: -122, lR: [100, 8, 25], lL: [122, 8, 122] },
+  how: 'Same as the glute bridge, but with one leg held straight. Push through the planted heel to lift your hips, keeping them level.',
+  watch: 'Don’t let the hip on the lifted-leg side drop. Do all reps on one side, then switch.' },
+{ n: 'Dead bug', g: 'Core', st: 'MAT', view: 'side', base: 'free', touch: ['back', 'hips'], grip: 'none',
+  P: { x: 100, y: 0, z: 10, yaw: 0, lean: -90, flatHead: 1 },
+  A: { aR: [180, 10, 180, 10], aL: [180, 10, 180, 10], lR: [180, 8, 90], lL: [180, 8, 90] }, B: { aR: [275, 10, 275, 10], aL: [180, 10, 180, 10], lR: [180, 8, 90], lL: [98, 8, 98] },
+  how: 'Lie on your back with your arms pointing up and your knees bent at 90° above your hips. Slowly lower one arm overhead and the opposite leg toward the mat, then bring them back and switch sides.',
+  watch: 'Keep your lower back pressed into the mat the whole time. Only go as low as you can without it lifting.' },
+{ n: 'Bird dog', g: 'Core', st: 'MAT', view: 'side', base: 'kneel', touch: ['handL', 'kneeR'], grip: 'flat',
+  P: { x: 100, y: 0, z: 50, yaw: 0, lean: 66, aL: [0, 4, 0, 4], lR: [0, 7, -90] },
+  A: { aR: [0, 4, 0, 4], lL: [0, 7, -90] }, B: { aR: [90, 4, 90, 4], lL: [-88, 4, -88] },
+  how: 'On hands and knees, hands under your shoulders and knees under your hips. Reach one arm forward and the opposite leg back until both are level with your body, hold, then switch.',
+  watch: 'Keep your hips square to the mat and your back flat; don’t lift the leg higher than your hips.' },
+{ n: 'Crunch', g: 'Core', st: 'MAT', view: 'side', base: 'free', touch: ['hips', 'feet'], grip: 'none',
+  P: { x: 100, y: 0, z: 10, yaw: 0, lB: [135, 8, 30], armRel: 1, aB: [12, 10, 12, 10] },
+  A: { lean: -90 }, B: { lean: -62 },
+  how: 'Lie on your back with your knees bent and feet flat. Reach your hands toward your knees as you curl your shoulders off the mat, then lower slowly.',
+  watch: 'Curl from your stomach rather than pulling with your neck. Your lower back stays on the mat.' },
+{ n: 'Reverse crunch', g: 'Core', st: 'MAT', view: 'side', base: 'free', touch: ['back'], grip: 'flat',
+  P: { x: 100, y: 0, yaw: 0, flatHead: 1, aB: [90, 16, 90, 16] },
+  A: { z: 10, lean: -90, lB: [180, 8, 90] }, B: { z: 14, lean: -96, lB: [228, 8, 140] },
+  how: 'Lie on your back with your arms on the mat by your sides and your knees bent above your hips. Curl your hips off the mat to bring your knees toward your chest, then lower slowly.',
+  watch: 'Move slowly and don’t swing your legs to get momentum.' },
+{ n: 'Back extension on the mat', g: 'Back', st: 'MAT', view: 'side', base: 'free', touch: ['hips'], grip: 'none', hot: ['t'],
+  P: { x: 92, y: 0, z: 10, yaw: 0 },
+  A: { lean: 90, lB: [-90, 6, -90], aB: [-90, 18, -90, 18] }, B: { lean: 76, lB: [-100, 6, -100], aB: [-104, 18, -104, 18] },
+  how: 'Lie face down with your arms along your sides. Lift your chest, arms and legs a few centimetres off the mat, hold for two seconds, then lower.',
+  watch: 'Keep your neck long by looking at the mat, not forward. Small, controlled lifts are enough.' },
+{ n: 'Bodyweight squat', g: 'Quads', st: 'MAT', view: 'side', base: 'stand', touch: ['feet'], grip: 'none',
+  P: { x: 90, y: 0, yaw: 0, fR: [0, 18], fL: [0, 18] },
+  A: { z: 96, lean: 4, aB: [10, 12, 14, 10] }, B: { z: 58, lean: 34, aB: [82, 8, 82, 8] },
+  how: 'Stand with your feet a little wider than your hips. Sit your hips back and down until your thighs are level, reaching your arms forward for balance, then stand up.',
+  watch: 'Keep your heels down, your knees over your toes and your chest up.' },
+{ n: 'Bodyweight reverse lunge', g: 'Quads', st: 'MAT', view: 'side', base: 'stand', touch: ['feet'], grip: 'none', one: 'R', hot: ['lL'],
+  P: { y: 0, yaw: 0, aB: [8, 12, 12, 10] },
+  A: { x: 95, z: 96, fL: [0, 10], fR: [0, 10] }, B: { x: 85, z: 56, lean: 6, fL: [10, 10], fR: [-50, 10] },
+  how: 'Stand tall, step one foot back and lower until both knees are bent about 90°, then push through the front heel to stand back up.',
+  watch: 'Keep the front knee over your ankle and your torso upright.' },
+{ n: 'Bodyweight calf raise', g: 'Calves', st: 'MAT', view: 'side', base: 'stand', touch: ['toes'], grip: 'none',
+  P: { x: 90, y: 0, yaw: 0, fR: [0, 11], fL: [0, 11], aB: [8, 12, 12, 10] },
+  A: { rise: 0 }, B: { rise: 9 },
+  how: 'Stand tall with your feet hip-width apart and rise onto the balls of your feet, pause, then lower slowly. Hold the machine frame if you need balance.',
+  watch: 'Go all the way up and down; don’t bounce.' },
+{ n: 'Fire hydrant', g: 'Hips', st: 'MAT', view: 'q', base: 'kneel', touch: ['hands', 'kneeL'], grip: 'flat', one: 'R',
+  P: { x: 100, y: 0, z: 50, yaw: 0, lean: 66, aB: [0, 4, 0, 4], lL: [0, 7, -90] },
+  A: { lR: [0, 7, -90, 7] }, B: { lR: [0, 64, -90, 14] },
+  how: 'On hands and knees, keep the knee bent and lift one leg out to the side until your thigh is level with your hip, then lower.',
+  watch: 'Don’t lean away from the working leg; keep your weight centred.' }
+);
+
+/* Exercises that failed the check or don’t fit the hardware */
+const REMOVED = [
+  ['Close-grip chest press', 'The handles are fixed to the press arms, so you can’t bring your hands closer.'],
+  ['Incline chest press', 'The backrest is fixed upright on the Unit 6.'],
+  ['Reverse butterfly (rear-delt fly on the arm pads)', 'The butterfly arms only resist moving inward, so pushing them out does nothing. Use the single-arm rear-delt fly instead.'],
+  ['Seated side raise on the butterfly arms', 'The butterfly arms swing sideways around upright hinges; they can’t lift upward.'],
+  ['Seated calf raise on the leg unit', 'The leg lever only resists the shin moving forward and up, so pressing with the toes doesn’t load it.'],
+  ['Lying leg curl', 'There is no flat bench. The manufacturer shows the leg curl standing, one leg at a time.'],
+  ['Two-handed cable crossovers and flies', 'The pulley station has one adjustable pulley, so these are now single-arm versions.'],
+  ['Seated incline curl', 'There is no reclining seat; replaced by the Bayesian curl.'],
+  ['Seated cable twist', 'There is no seat next to the pulley station; replaced by the standing cable twist.']
+];
+
+const GP = {
+  Chest: 'Shoulder blades back, chest up. 1 s press, 1 s squeeze, 3 s return. Stop just short of locking your elbows.',
+  Back: 'Start each rep by drawing your shoulder blades down and back, then bend the elbows. 1 s pull, 1 s squeeze, 3 s return.',
+  Shoulders: 'Light weight and strict form, neck relaxed. 1 s up, 3 s down. Stop at shoulder height unless pressing.',
+  Biceps: 'Elbows still, wrists straight. 1 s curl, 1 s squeeze, 3 s lower to a full stretch.',
+  Triceps: 'The upper arm stays still; only the forearm moves. 1 s extend, 1 s squeeze, 3 s return.',
+  Forearms: 'Small, slow reps with a light weight. 1 s up, 1 s hold, 3 s down.',
+  Quads: 'Knees track over the toes. 2 s up, 1 s squeeze, 3 s down; don’t let the stack slam.',
+  Hamstrings: 'Hips still, back neutral. 2 s curl, 1 s squeeze, 3 s return.',
+  Glutes: 'Squeeze the glute at the end of every rep. 1 s up, 1 s hold, 3 s return. Ribs down.',
+  Hips: 'Stand tall, hold on to something steady and move only the leg. 2 s out, 1 s hold, 3 s back.',
+  Calves: 'Full stretch at the bottom, high on the toes at the top with a 1 s pause. 2 s up, 3 s down.',
+  Core: 'Brace before each rep and breathe out on the effort. Slow, controlled reps; the cable should never yank you.'
+};
+
+/* ---------------- plans ----------------
+   kind 'one' = one muscle group, 'multi' = several. Each item: [exercise, sets, reps, each side?] */
+const W = [
+/* one muscle group */
+{ n: 'Chest', kind: 'one', note: 'Finish with push-ups on the mat to empty the tank.', e: [['Seated chest press', 3, '10'], ['Butterfly', 3, '12'], ['Single-arm cable fly', 2, '12', 1], ['Push-up', 2, 'as many as you can']] },
+{ n: 'Back', kind: 'one', note: 'Pulldowns first while you are fresh, rows on the floor, then the mat.', e: [['Lat pulldown, wide grip', 3, '10'], ['Seated low row', 3, '10'], ['Single-arm seated row', 2, '10', 1], ['Back extension on the mat', 2, '12']] },
+{ n: 'Shoulders', kind: 'one', note: 'Keep the weights light on the cable raises; strict form matters more.', e: [['Machine shoulder press', 3, '10'], ['Cable lateral raise', 3, '12', 1], ['Face pull', 3, '12'], ['Pike push-up', 2, '8']] },
+{ n: 'Biceps', kind: 'one', note: 'Arm pad first, then the pulley station at the lowest hole.', e: [['Preacher curl', 3, '10'], ['Standing cable curl', 3, '12'], ['Hammer curl', 2, '12', 1], ['Bayesian curl', 2, '12', 1]] },
+{ n: 'Triceps', kind: 'one', note: 'Upper pulley, then the pulley station, then the mat.', e: [['Triceps pushdown', 3, '12'], ['Overhead triceps extension', 3, '12', 1], ['Cable kickback', 2, '12', 1], ['Diamond push-up', 2, '8']] },
+{ n: 'Forearms', kind: 'one', note: 'Arm pad first, then stand at the low pulley. Small, slow reps; stop if your wrists ache.', e: [['Wrist curl over the arm pad', 3, '15'], ['Reverse wrist curl', 3, '15'], ['Reverse preacher curl', 2, '12'], ['Reverse curl', 2, '12']] },
+{ n: 'Quads', kind: 'one', note: 'Leg lever first, then the low pulley, then bodyweight lunges to finish.', e: [['Leg extension', 3, '12'], ['Single-leg extension', 2, '12', 1], ['Cable squat', 3, '12'], ['Bodyweight reverse lunge', 2, '10', 1]] },
+{ n: 'Hamstrings', kind: 'one', note: 'Hinges are slow and controlled; feel the stretch at the bottom.', e: [['Standing leg curl', 3, '12', 1], ['Cable Romanian deadlift', 3, '10'], ['Single-leg cable deadlift', 2, '10', 1], ['Single-leg glute bridge', 2, '10', 1]] },
+{ n: 'Glutes', kind: 'one', note: 'Cables first, then finish on the mat. Squeeze and pause at the top of every rep.', e: [['Cable glute kickback', 3, '12', 1], ['Cable pull-through', 3, '12'], ['Glute bridge', 3, '15'], ['Single-leg glute bridge', 2, '10', 1]] },
+{ n: 'Hips', kind: 'one', note: 'Ankle strap on the lowest hole; hold the rail for balance.', e: [['Cable hip abduction', 3, '12', 1], ['Cable hip adduction', 3, '12', 1], ['Cable hip flexion', 2, '12', 1], ['Fire hydrant', 2, '12', 1]] },
+{ n: 'Calves', kind: 'one', note: 'Full range: deep stretch at the bottom, 1 s pause at the top.', e: [['Standing cable calf raise', 4, '15'], ['Single-leg cable calf raise', 3, '12', 1], ['Bodyweight calf raise', 2, '20']] },
+{ n: 'Core', kind: 'one', note: 'Mat first, then move the pulley from chest height to the top.', e: [['Forearm plank', 3, '30 s'], ['Dead bug', 3, '8', 1], ['Pallof press', 2, '10', 1], ['Kneeling cable crunch', 3, '15'], ['Woodchop, high to low', 2, '10', 1]] },
+/* several muscle groups */
+{ n: 'Push day', kind: 'multi', note: 'Chest, shoulders and triceps: everything that pushes.', e: [['Seated chest press', 3, '10'], ['Machine shoulder press', 3, '10'], ['Butterfly', 3, '12'], ['Cable lateral raise', 2, '12', 1], ['Triceps pushdown', 3, '12'], ['Push-up', 2, 'as many as you can']] },
+{ n: 'Pull day', kind: 'multi', note: 'Back, rear shoulders, biceps and grip: everything that pulls.', e: [['Lat pulldown, wide grip', 3, '10'], ['Seated low row', 3, '10'], ['Face pull', 3, '12'], ['Preacher curl', 3, '10'], ['Wrist curl over the arm pad', 2, '15']] },
+{ n: 'Leg day', kind: 'multi', note: 'Front and back of the thighs, glutes and calves.', e: [['Leg extension', 3, '12'], ['Standing leg curl', 3, '12', 1], ['Cable squat', 3, '12'], ['Standing cable calf raise', 3, '15'], ['Glute bridge', 3, '15']] },
+{ n: 'Upper body', kind: 'multi', note: 'Presses first, then pulls, then one exercise each for the arms.', e: [['Seated chest press', 3, '10'], ['Machine shoulder press', 2, '10'], ['Lat pulldown, wide grip', 3, '10'], ['Triceps pushdown', 2, '12'], ['Seated low row', 2, '10'], ['Standing cable curl', 2, '12']] },
+{ n: 'Lower body & core', kind: 'multi', note: 'Low front pulley first, then the pulley station, then the mat.', e: [['Cable squat', 3, '12'], ['Cable Romanian deadlift', 3, '10'], ['Cable glute kickback', 2, '12', 1], ['Cable hip abduction', 2, '12', 1], ['Forearm plank', 3, '30 s'], ['Dead bug', 2, '8', 1]] },
+{ n: 'Arms', kind: 'multi', note: 'Biceps, triceps and forearms. Arm pad first, then the cables.', e: [['Preacher curl', 3, '10'], ['Wrist curl over the arm pad', 2, '15'], ['Triceps pushdown', 3, '12'], ['Hammer curl', 2, '12', 1], ['Overhead triceps extension', 2, '12', 1]] },
+{ n: 'Chest & back', kind: 'multi', note: 'Pair each chest exercise with a back exercise.', e: [['Seated chest press', 3, '10'], ['Lat pulldown, wide grip', 3, '10'], ['Single-arm cable fly', 2, '12', 1], ['Seated low row', 3, '10'], ['Push-up', 2, 'as many as you can']] },
+{ n: 'Core & glutes on the mat', kind: 'multi', note: 'Mostly mat work, finishing with one cable exercise for rotation.', e: [['Glute bridge', 3, '15'], ['Bird dog', 3, '8', 1], ['Fire hydrant', 2, '12', 1], ['Reverse crunch', 3, '12'], ['Pallof press', 2, '10', 1]] },
+{ n: 'Posture: back & shoulders', kind: 'multi', note: 'Upper back, rear shoulders and the small muscles that keep your shoulders back.', e: [['Face pull', 3, '12'], ['Single-arm rear-delt fly', 2, '12', 1], ['Shoulder rotation', 2, '12', 1], ['Straight-arm pulldown', 2, '12'], ['Back extension on the mat', 2, '12'], ['Bird dog', 2, '8', 1]] },
+{ n: 'Full body on the machine', kind: 'multi', note: 'One lap of the machine. Light weight, 2 sets, stop 3 reps short of failure.', e: [['Seated chest press', 2, '10'], ['Machine shoulder press', 2, '10'], ['Lat pulldown, wide grip', 2, '10'], ['Leg extension', 2, '12'], ['Standing leg curl', 2, '12', 1], ['Standing cable calf raise', 2, '15'], ['Kneeling cable crunch', 2, '15']] },
+{ n: 'Full body on the mat', kind: 'multi', note: 'No machine needed, for days away from home or when someone else is using it.', e: [['Bodyweight squat', 3, '15'], ['Push-up', 3, 'as many as you can'], ['Glute bridge', 3, '15'], ['Back extension on the mat', 3, '12'], ['Bodyweight reverse lunge', 2, '10', 1], ['Forearm plank', 3, '30 s'], ['Dead bug', 2, '8', 1]] },
+{ n: 'Quick full body', kind: 'multi', note: 'Fifteen minutes when time is short.', e: [['Seated chest press', 2, '10'], ['Lat pulldown, wide grip', 2, '10'], ['Bodyweight squat', 2, '15'], ['Forearm plank', 2, '30 s']] }
+];
+const DAYS = [['Mon', ['Push day']], ['Tue', ['Leg day']], ['Wed', ['Pull day']], ['Thu', ['Core & glutes on the mat']], ['Fri', ['Upper body']], ['Sat', ['Lower body & core']], ['Sun', []]];
+const MUSCLES = ['Chest', 'Back', 'Shoulders', 'Biceps', 'Triceps', 'Forearms', 'Quads', 'Hamstrings', 'Glutes', 'Hips', 'Calves', 'Core'];
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { EX, REMOVED, GP, W, DAYS, MUSCLES };
+
+/* how to hold: over = overhand, under = underhand, neutral = thumbs up, both = two hands on one handle,
+   open = forearms on pads, hold = hold on for balance, none = hands free */
+const GRIP = {
+  'Seated chest press': 'neutral', 'Butterfly': 'open', 'Single-arm butterfly': 'open', 'Single-arm cable press': 'over', 'Single-arm cable fly': 'neutral',
+  'Single-arm crossover, high to low': 'over', 'Single-arm crossover, low to high': 'under',
+  'Lat pulldown, wide grip': 'over', 'Lat pulldown, close grip': 'over', 'Underhand lat pulldown': 'under', 'Behind-the-neck pulldown': 'over',
+  'Single-arm lat pulldown': 'neutral', 'Straight-arm pulldown': 'over', 'Seated low row': 'both', 'Single-arm seated row': 'neutral', 'Wide-grip floor row': 'over',
+  'Standing single-arm row': 'neutral', 'Face pull': 'both',
+  'Cable lateral raise': 'over', 'Cable front raise': 'over', 'Single-arm rear-delt fly': 'neutral', 'Upright row': 'over', 'Single-arm shoulder press': 'over',
+  'Shoulder rotation': 'neutral', 'Cable shrug': 'over', 'Cable Y-raise': 'neutral', 'Machine shoulder press': 'neutral',
+  'Preacher curl': 'under', 'Reverse preacher curl': 'over', 'Standing cable curl': 'under', 'Single-arm cable curl': 'under', 'Hammer curl': 'neutral',
+  'Reverse curl': 'over', 'High-cable curl': 'under', 'Bayesian curl': 'under',
+  'Triceps pushdown': 'over', 'Reverse-grip pushdown': 'under', 'Single-arm pushdown': 'over', 'Overhead triceps extension': 'neutral', 'Cable kickback': 'neutral',
+  'Wrist curl over the arm pad': 'under', 'Reverse wrist curl': 'over',
+  'Leg extension': 'hold', 'Single-leg extension': 'hold', 'Cable squat': 'under', 'Cable reverse lunge': 'under',
+  'Standing leg curl': 'hold', 'Standing cable leg curl': 'hold', 'Cable Romanian deadlift': 'over', 'Single-leg cable deadlift': 'neutral',
+  'Cable glute kickback': 'hold', 'Cable pull-through': 'both', 'Bent-over hip extension': 'hold',
+  'Cable hip abduction': 'hold', 'Cable hip adduction': 'none', 'Cable hip flexion': 'none',
+  'Standing cable calf raise': 'over', 'Single-leg cable calf raise': 'neutral',
+  'Kneeling cable crunch': 'both', 'Woodchop, high to low': 'both', 'Woodchop, low to high': 'both', 'Pallof press': 'both',
+  'Standing side bend': 'neutral', 'Standing cable twist': 'both', 'High-pulley side crunch': 'neutral', 'Seated cable crunch': 'over'
+};
+EX.forEach(e => { e.grip = e.grip || GRIP[e.n] || 'none'; });
+if (typeof module !== 'undefined' && module.exports) module.exports.GRIP = GRIP;
+
+/* ===== progress log ===== */
+const APP_MODE = !!(typeof window !== 'undefined' && window.U6_APP);
+const NATIVE = typeof window !== 'undefined' && window.U6Native && typeof window.U6Native.share === 'function' ? window.U6Native : null;
+/* On-phone storage for the installable app. Kept apart from the app's own files, so updating the app never touches it.
+   The format is versioned: a newer app converts older data instead of discarding it, and entries are never dropped,
+   even for an exercise that a later version renames or removes. */
+const LOCAL_KEY = 'u6-progress';
+function localDB() {
+  let st = { v: 1, docs: {} };
+  try { const raw = localStorage.getItem(LOCAL_KEY); if (raw) { const o = JSON.parse(raw); if (o && typeof o === 'object' && o.docs && typeof o.docs === 'object') st = { v: 1, docs: o.docs }; } } catch (_) {}
+  const subs = {};
+  const persist = () => { localStorage.setItem(LOCAL_KEY, JSON.stringify(st)); };
+  const snapDoc = p => ({ id: p.split('/').pop(), exists: p in st.docs, data: () => st.docs[p], metadata: { fromCache: false, hasPendingWrites: false } });
+  const colOf = p => p.split('/').slice(0, -1).join('/');
+  const colSnap = c => { const docs = Object.keys(st.docs).filter(k => colOf(k) === c).map(snapDoc); return { docs, size: docs.length, empty: !docs.length, docChanges: () => [], metadata: { fromCache: false, hasPendingWrites: false } }; };
+  const fire = p => { (subs['c:' + colOf(p)] || []).forEach(cb => cb(colSnap(colOf(p)))); (subs['d:' + p] || []).forEach(cb => cb(snapDoc(p))); };
+  return {
+    collection: c => ({ onSnapshot: next => { (subs['c:' + c] = subs['c:' + c] || []).push(next); setTimeout(() => next(colSnap(c)), 0); return () => {}; } }),
+    doc: p => ({
+      set: async d => { const prev = st.docs[p]; st.docs[p] = JSON.parse(JSON.stringify(d)); try { persist(); } catch (e) { if (prev === undefined) delete st.docs[p]; else st.docs[p] = prev; throw { code: 'quota_exceeded' }; } fire(p); },
+      onSnapshot: next => { (subs['d:' + p] = subs['d:' + p] || []).push(next); setTimeout(() => next(snapDoc(p)), 0); return () => {}; }
+    }),
+    all: () => st.docs,
+    merge: incoming => { let added = 0; for (const [k, v] of Object.entries(incoming || {})) {
+        if (!/^progress\/[ab]~[A-Za-z0-9_.~:@+-]+$/.test(k) || !v || !Array.isArray(v.entries)) continue;
+        const cur = st.docs[k] && Array.isArray(st.docs[k].entries) ? st.docs[k].entries : [], seen = new Set(cur.map(x => x.t));
+        const add = v.entries.filter(x => x && typeof x.t === 'number' && typeof x.d === 'string' && x.sets >= 1 && x.reps >= 1 && !seen.has(x.t));
+        if (!add.length && st.docs[k]) continue;
+        added += add.length;
+        st.docs[k] = { p: v.p, ex: v.ex, entries: cur.concat(add).sort((a, b) => a.t - b.t) };
+      }
+      persist(); Object.keys(st.docs).forEach(fire); return added; }
+  };
+}
+const PG = { db: null, state: 'loading', readOnly: false, names: ['Person 1', 'Person 2'], who: 0, data: { a: {}, b: {} } };
+const PKEYS = ['a', 'b'];
+try { if (localStorage.getItem('u6-who') === '1') PG.who = 1; } catch (_) {}
+const pName = i => PG.names[i] || ('Person ' + (i + 1));
+const unitOf = e => (e.hold ? 's' : 'reps');
+const usesKg = e => e.st !== 'MAT';
+const todayStr = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+const fmtKg = n => String(Math.round(n * 10) / 10);
+function agoText(ds) {
+  const [y, m, d] = ds.split('-').map(Number), t = new Date(y, m - 1, d), n = new Date(), t0 = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  const days = Math.round((t0 - t) / 864e5);
+  return days <= 0 ? 'today' : days === 1 ? 'yesterday' : days < 7 ? days + ' days ago' : t.toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+}
+const entriesOf = (p, id) => PG.data[p][id] || [];
+const lastOf = (p, id) => { const a = entriesOf(p, id); return a.length ? a[a.length - 1] : null; };
+const score = (e, x) => usesKg(e) && x.kg ? x.kg : x.reps;
+function bestOf(e, p) { const a = entriesOf(p, e.id); if (!a.length) return null; return a.reduce((b, x) => (score(e, x) > score(e, b) ? x : b), a[0]); }
+function entryText(e, x) { return (usesKg(e) && x.kg ? fmtKg(x.kg) + ' kg · ' : '') + x.sets + ' × ' + x.reps + (unitOf(e) === 's' ? ' s' : ''); }
+
+/* ---------- storage ---------- */
+const writeChain = {};
+function saveEntries(p, e, list) {
+  PG.data[p][e.id] = list; refreshProgress(e.id);
+  if (!PG.db || PG.readOnly) return Promise.resolve();
+  const key = p + '~' + e.id;
+  const run = () => PG.db.doc('progress/' + key).set({ p, ex: e.id, entries: list.slice(-300) });
+  writeChain[key] = (writeChain[key] || Promise.resolve()).then(run).catch(err => {
+    if (err && err.code === 'invalid_argument') { PG.readOnly = true; PG.state = 'readonly'; }
+    else if (err && err.code === 'quota_exceeded') PG.state = 'full';
+    else PG.state = 'error';
+    refreshProgress();
+  });
+  return writeChain[key];
+}
+function addEntry(e, p, x) { saveEntries(p, e, entriesOf(p, e.id).concat([x])); }
+function deleteEntry(e, p, t) { saveEntries(p, e, entriesOf(p, e.id).filter(x => x.t !== t)); }
+let namesBusy = Promise.resolve();
+function saveNames(names) {
+  PG.names = names; refreshProgress();
+  if (!PG.db || PG.readOnly) return;
+  namesBusy = namesBusy.then(() => PG.db.doc('settings/people').set({ names })).catch(() => {});
+}
+
+async function initProgress() {
+  refreshProgress();
+  if (APP_MODE) {
+    try { PG.db = localDB(); } catch (_) { PG.state = 'off'; refreshProgress(); return; }
+    if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+    PG.who = 0;
+    PG.db.collection('progress').onSnapshot(snap => {
+      const next = { a: {}, b: {} };
+      snap.docs.forEach(d => { const v = d.data(); if (v && (v.p === 'a' || v.p === 'b') && typeof v.ex === 'string' && Array.isArray(v.entries)) next[v.p][v.ex] = v.entries; });
+      PG.data = next; PG.state = 'ready'; refreshProgress();
+    });
+    return;
+  }
+  if (!window.claude || typeof window.claude.use !== 'function') { PG.state = 'off'; refreshProgress(); return; }
+  const db = await window.claude.use('db');
+  if (!db) { PG.state = 'off'; refreshProgress(); return; }
+  PG.db = db;
+  const user = await window.claude.use('user');
+  if (user) { try { const c = await user.can('data.write'); if (c === false) PG.readOnly = true; } catch (_) {} }
+  let timer = setTimeout(() => { if (PG.state === 'loading') { PG.state = 'slow'; refreshProgress(); } }, 10000);
+  db.collection('progress').onSnapshot(snap => {
+    const next = { a: {}, b: {} };
+    snap.docs.forEach(d => { const v = d.data(); if (v && (v.p === 'a' || v.p === 'b') && typeof v.ex === 'string' && Array.isArray(v.entries)) next[v.p][v.ex] = v.entries.filter(x => x && typeof x === 'object'); });
+    PG.data = next;
+    if (!snap.metadata.fromCache) { clearTimeout(timer); PG.state = PG.readOnly ? 'readonly' : 'ready'; }
+    else if (PG.state === 'loading') PG.state = 'cached';
+    refreshProgress();
+  }, () => { clearTimeout(timer); PG.state = 'error'; refreshProgress(); });
+  db.doc('settings/people').onSnapshot(snap => {
+    const v = snap.exists ? snap.data() : null;
+    if (v && Array.isArray(v.names)) PG.names = [String(v.names[0] || 'Person 1').slice(0, 24), String(v.names[1] || 'Person 2').slice(0, 24)];
+    refreshProgress();
+  }, () => {});
+}
+
+/* ---------- rendering ---------- */
+const STATE_NOTE = {
+  loading: 'Loading progress…', cached: 'Showing saved progress; checking for updates…', slow: 'Progress can’t be reached yet. What you see may be out of date.',
+  off: 'Progress saving works on the published page when you’re signed in to Claude.', readonly: 'You can see the progress but not add to it. Ask the page’s owner for Contributor access.',
+  error: 'Progress couldn’t be saved or loaded. Check your connection and reopen the page.', full: 'The progress log is full. Delete some old entries to add new ones.'
+};
+const canLog = () => PG.db && !PG.readOnly && PG.state !== 'off';
+function spark(e) {
+  const series = [entriesOf(PKEYS[PG.who], e.id).slice(-12).map(x => score(e, x))];
+  const all = series.flat(); if (all.length < 2) return '';
+  const lo = Math.min(...all), hi = Math.max(...all), span = hi - lo || 1, W = 240, H = 54;
+  const paths = series.map((s, _i) => { const i = PG.who;
+    if (s.length < 2) return s.length ? '<circle cx="' + W / 2 + '" cy="' + (H - 6 - (s[0] - lo) / span * (H - 14)) + '" r="3" fill="var(--p' + i + ')"/>' : '';
+    const pts = s.map((v, j) => [6 + j * (W - 12) / (s.length - 1), H - 6 - (v - lo) / span * (H - 14)]);
+    return '<polyline points="' + pts.map(q => q.map(n => n.toFixed(1)).join(',')).join(' ') + '" fill="none" stroke="var(--p' + i + ')" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>' +
+      '<circle cx="' + pts[pts.length - 1][0].toFixed(1) + '" cy="' + pts[pts.length - 1][1].toFixed(1) + '" r="3.2" fill="var(--p' + i + ')"/>';
+  }).join('');
+  const lab = usesKg(e) ? 'kg' : unitOf(e);
+  return '<div class="spark"><svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Trend of the last sessions">' + paths + '</svg><span>' + fmtKg(lo) + '–' + fmtKg(hi) + ' ' + lab + ', last 12 sessions</span></div>';
+}
+function whoSwitch(cls) {
+  if (APP_MODE) return '';
+  return '<div class="who ' + (cls || '') + '" role="group" aria-label="Who is training">' + [0, 1].map(i =>
+    '<button type="button" class="whob" data-who="' + i + '" aria-pressed="' + (PG.who === i) + '"><i class="pdot" style="background:var(--p' + i + ')"></i>' + esc(pName(i)) + '</button>').join('') + '</div>';
+}
+function logForm(e, sets, reps, idp) {
+  const p = PKEYS[PG.who], last = lastOf(p, e.id), kg = last && last.kg ? last.kg : '';
+  const s0 = sets || (last ? last.sets : 3), r0 = /^\d+/.test(String(reps || '')) ? parseInt(reps, 10) : (last ? last.reps : '');
+  return '<form class="logf" data-logex="' + e.id + '">' +
+    (usesKg(e) ? '<label>Weight<span><input id="' + idp + '-kg" name="kg" type="number" inputmode="decimal" min="0" max="300" step="0.5" value="' + kg + '" placeholder="kg"> kg</span></label>' : '') +
+    '<label>Sets<span><input id="' + idp + '-sets" name="sets" type="number" inputmode="numeric" min="1" max="20" step="1" value="' + s0 + '"></span></label>' +
+    '<label>' + (unitOf(e) === 's' ? 'Seconds' : 'Reps') + '<span><input id="' + idp + '-reps" name="reps" type="number" inputmode="numeric" min="1" max="300" step="1" value="' + r0 + '" required></span></label>' +
+    '<button type="submit" class="btn logbtn">' + (APP_MODE ? 'Log' : 'Log for ' + esc(pName(PG.who))) + '</button></form>';
+}
+function personCol(e, i) {
+  const p = PKEYS[i], a = entriesOf(p, e.id), last = a[a.length - 1], best = bestOf(e, p);
+  const rows = a.slice(-5).reverse().map(x => '<li><span>' + esc(agoText(x.d)) + '</span><span class="v">' + esc(entryText(e, x)) + '</span>' +
+    (canLog() ? '<button type="button" class="del" data-del="' + p + '|' + e.id + '|' + x.t + '" aria-label="Delete this entry">×</button>' : '') + '</li>').join('');
+  return '<div class="pcol">' + (APP_MODE ? '' : '<div class="pname"><i class="pdot" style="background:var(--p' + i + ')"></i>' + esc(pName(i)) + '</div>') +
+    (last ? '<div class="stat"><span>Last</span><b>' + esc(entryText(e, last)) + '</b><span>' + esc(agoText(last.d)) + '</span></div>' +
+      (best && a.length > 1 ? '<div class="stat"><span>Best</span><b>' + esc(entryText(e, best)) + '</b></div>' : '') + '<ul class="hist">' + rows + '</ul>'
+      : '<p class="none">Nothing logged yet.</p>') + '</div>';
+}
+function renderSheetProgress() {
+  const box = $('dProg'); if (!box || !cur) return;
+  const e = cur, note = STATE_NOTE[PG.state];
+  box.innerHTML = '<div class="phead"><h4>Progress</h4>' + whoSwitch() + '</div>' +
+    (note && PG.state !== 'ready' ? '<p class="pnote">' + esc(note) + '</p>' : '') +
+    (canLog() ? logForm(e, null, null, 'dl') : '') +
+    spark(e) + personCol(e, PG.who);
+}
+function rowLine(e) {
+  return [PG.who].map(i => { const x = lastOf(PKEYS[i], e.id);
+    return '<span class="pl">' + (APP_MODE ? '' : '<i class="pdot" style="background:var(--p' + i + ')"></i>' + esc(pName(i)) + ' ') + (x ? '<b>' + esc(entryText(e, x)) + '</b> <em>' + esc(agoText(x.d)) + '</em>' : '<em>nothing logged yet</em>') + '</span>'; }).join('');
+}
+function refreshProgress(onlyId) {
+  document.querySelectorAll('[data-prog]').forEach(el => {
+    if (onlyId && el.dataset.prog !== onlyId) return;
+    const e = EX.find(x => x.id === el.dataset.prog); if (!e) return;
+    const parts = [PG.who].map(i => { const x = lastOf(PKEYS[i], e.id); return x ? '<span>' + (APP_MODE ? 'Last ' : '<i class="pdot" style="background:var(--p' + i + ')"></i>' + esc(pName(i)) + ' ') + esc(usesKg(e) && x.kg ? fmtKg(x.kg) + ' kg' : x.reps + (unitOf(e) === 's' ? ' s' : ' reps')) + '</span>' : ''; }).filter(Boolean);
+    el.innerHTML = parts.join(''); el.hidden = !parts.length;
+  });
+  document.querySelectorAll('[data-pline]').forEach(el => {
+    if (onlyId && el.dataset.pline !== onlyId) return;
+    const e = EX.find(x => x.id === el.dataset.pline); if (e) el.innerHTML = rowLine(e);
+  });
+  document.querySelectorAll('.plog').forEach(b => { b.hidden = !canLog(); b.textContent = 'Log'; });
+  const pb = $('planWho'); if (pb) { pb.innerHTML = whoSwitch('small') + (PG.state !== 'ready' && STATE_NOTE[PG.state] ? '<span class="pnote">' + esc(STATE_NOTE[PG.state]) + '</span>' : ''); }
+  const hb = $('hdrWho');
+  if (hb && APP_MODE) {
+    if (!hb.querySelector('#backupBtn')) hb.innerHTML = '<span class="flabel">Your progress</span><button type="button" class="btn small" id="backupBtn">Back up</button>' +
+      (NATIVE ? '<button type="button" class="btn small" id="restoreBtn">Restore</button>' : '<label class="btn small" for="restoreFile">Restore</label><input type="file" id="restoreFile" accept="application/json,.json" hidden>') +
+      '<span class="pnote" id="backupNote"></span><div class="restorebox" id="restoreBox" hidden><label for="restoreText">Paste the backup text you saved, then tap Restore. Entries you already have are skipped.</label><textarea id="restoreText" rows="4" spellcheck="false"></textarea><div><button type="button" class="btn small logbtn" id="restoreGo">Restore</button> <button type="button" class="btn small" id="restoreCancel">Cancel</button></div></div>';
+    const bn = $('backupNote'); if (bn) bn.textContent = backupText();
+  }
+  else if (hb) hb.innerHTML = '<span class="flabel">Training</span>' + whoSwitch() + '<button type="button" class="btn small" id="editNames">Names</button>';
+  if (cur && sheet.open && (!onlyId || onlyId === cur.id)) {
+    const f = document.activeElement && document.activeElement.closest && document.activeElement.closest('#dProg form');
+    if (!f) renderSheetProgress();
+  }
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', ev => {
+  const w = ev.target.closest('[data-who]');
+  if (w) { PG.who = +w.dataset.who; try { localStorage.setItem('u6-who', String(PG.who)); } catch (_) {} refreshProgress(); document.querySelectorAll('.prow form.logf').forEach(f => f.remove()); return; }
+  const d = ev.target.closest('[data-del]');
+  if (d) { const [p, id, t] = d.dataset.del.split('|'); const e = EX.find(x => x.id === id); if (e) deleteEntry(e, p, +t); renderSheetProgress(); return; }
+  const lg = ev.target.closest('.plog');
+  if (lg) {
+    const row = lg.closest('.prow'), e = EX.find(x => x.id === lg.dataset.log); if (!row || !e) return;
+    const open = row.querySelector('form.logf');
+    if (open) { open.remove(); lg.setAttribute('aria-expanded', 'false'); return; }
+    row.insertAdjacentHTML('beforeend', logForm(e, +lg.dataset.sets, lg.dataset.reps, 'pf-' + lg.dataset.uid));
+    lg.setAttribute('aria-expanded', 'true');
+    const first = row.querySelector('form.logf input'); if (first) first.focus();
+    return;
+  }
+  if (ev.target.closest('#editNames')) { openNames(); return; }
+});
+document.addEventListener('submit', ev => {
+  const f = ev.target.closest('form.logf'); if (!f) return;
+  ev.preventDefault();
+  const e = EX.find(x => x.id === f.dataset.logex); if (!e || !canLog()) return;
+  const num = n => { const el = f.elements[n]; return el ? parseFloat(String(el.value).replace(',', '.')) : NaN; };
+  const kg = num('kg'), sets = Math.round(num('sets')), reps = Math.round(num('reps'));
+  if (!(sets >= 1) || !(reps >= 1)) { f.querySelector('input[name="reps"]').reportValidity && f.querySelector('input[name="reps"]').focus(); return; }
+  const x = { t: Date.now(), d: todayStr(), sets, reps };
+  if (usesKg(e) && kg > 0) x.kg = Math.round(kg * 10) / 10;
+  addEntry(e, PKEYS[PG.who], x);
+  const inSheet = f.closest('#dProg');
+  if (inSheet) { document.activeElement && document.activeElement.blur(); renderSheetProgress(); flash($('dProg'), 'Logged for ' + pName(PG.who)); }
+  else { const row = f.closest('.prow'); f.remove(); const b = row && row.querySelector('.plog'); if (b) { b.setAttribute('aria-expanded', 'false'); flash(row, 'Logged'); } }
+});
+function flash(el, text) { if (!el) return; const t = document.createElement('span'); t.className = 'toast'; t.textContent = text; el.appendChild(t); setTimeout(() => t.remove(), 1800); }
+function openNames() {
+  const hb = $('hdrWho'); if (!hb) return;
+  hb.innerHTML = '<form class="namesf" id="namesf"><label for="nm0">Person 1</label><input id="nm0" maxlength="24" value="' + esc(pName(0)) + '"><label for="nm1">Person 2</label><input id="nm1" maxlength="24" value="' + esc(pName(1)) + '"><button class="btn" type="submit">Save names</button><button class="btn" type="button" id="namesCancel">Cancel</button></form>';
+  $('nm0').focus();
+  $('namesCancel').onclick = () => refreshProgress();
+  $('namesf').onsubmit = ev => { ev.preventDefault(); const n = [$('nm0').value.trim() || 'Person 1', $('nm1').value.trim() || 'Person 2']; saveNames(n); };
+}
+
+/* ---------- backup & restore (installable app) ---------- */
+function backupText() {
+  let t = 0; try { t = +localStorage.getItem('u6-lastbackup') || 0; } catch (_) {}
+  const n = Object.values(PG.data.a).reduce((a, l) => a + l.length, 0);
+  if (!n) return '';
+  if (!t) return 'Not backed up yet';
+  const days = Math.floor((Date.now() - t) / 864e5);
+  return 'Last backup ' + (days <= 0 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago');
+}
+document.addEventListener('click', ev => {
+  if (!APP_MODE || !ev.target.closest('#backupBtn') || !PG.db) return;
+  const data = { app: 'unit6-training-guide', format: 1, exported: new Date().toISOString(), docs: PG.db.all() };
+  if (NATIVE) {
+    try { NATIVE.share('Unit 6 progress backup ' + todayStr(), JSON.stringify(data)); localStorage.setItem('u6-lastbackup', String(Date.now())); } catch (_) {}
+    refreshProgress(); return;
+  }
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'unit6-progress-' + todayStr() + '.json';
+  document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  try { localStorage.setItem('u6-lastbackup', String(Date.now())); } catch (_) {}
+  refreshProgress(); flash($('hdrWho'), 'Backup saved');
+});
+function restoreFromText(txt) {
+  let o; try { o = JSON.parse(String(txt).trim()); } catch (_) { o = null; }
+  if (!o || o.app !== 'unit6-training-guide' || !o.docs) { flash($('hdrWho'), 'That isn’t a Unit 6 backup'); return false; }
+  const n = PG.db.merge(o.docs);
+  flash($('hdrWho'), n ? 'Restored ' + n + ' entr' + (n === 1 ? 'y' : 'ies') : 'Nothing new in that backup');
+  return true;
+}
+document.addEventListener('change', ev => {
+  if (!APP_MODE || ev.target.id !== 'restoreFile' || !PG.db) return;
+  const f = ev.target.files && ev.target.files[0]; if (!f) return;
+  f.text().then(restoreFromText).catch(() => flash($('hdrWho'), 'Couldn’t read that file')).finally(() => { ev.target.value = ''; });
+});
+document.addEventListener('click', ev => {
+  if (!APP_MODE || !PG.db) return;
+  if (ev.target.closest('#restoreBtn')) { const box = $('restoreBox'); box.hidden = !box.hidden; if (!box.hidden) $('restoreText').focus(); }
+  else if (ev.target.closest('#restoreCancel')) { $('restoreBox').hidden = true; $('restoreText').value = ''; }
+  else if (ev.target.closest('#restoreGo')) { if (restoreFromText($('restoreText').value)) { $('restoreBox').hidden = true; $('restoreText').value = ''; } }
+});
+
+/* ===== page ===== */
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const ST_NAME = { CP: 'Press arms', BF: 'Butterfly arms', LG: 'Leg lever', CB: 'Arm pad', UP: 'Upper pulley', LP: 'Low front pulley', PS: 'Pulley station', MAT: 'Yoga mat' };
+const ATT_NAME = { lat: 'Lat bar', bar: 'Curl bar + chain', grip: 'Single grip', strap: 'Ankle strap' };
+const V_LABEL = { C: 'Confirmed', L: 'Model-checked', K: 'Check your machine', X: 'Failed check' };
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+EX.forEach((e, i) => {
+  /* The id keys saved progress. If an exercise is ever renamed, give it key: '<old id without ex->' so its logs stay attached. */
+  e.id = 'ex-' + (e.key || slug(e.n)); e.i = i; e.view = 'q';
+  e.checks = runChecks(e);
+  e.v = e.checks.some(c => c.ok === 0) ? 'X' : e.flag ? 'K' : (e.ev === 'photo' || e.ev === 'user') ? 'C' : 'L';
+});
+const BYNAME = Object.fromEntries(EX.map(e => [e.n, e]));
+const attOf = e => (e.m && e.m.att) ? ATT_NAME[e.m.att] : e.st === 'CP' ? 'Handles' : e.st === 'BF' ? 'Forearm pads' : e.st === 'LG' ? 'Leg rollers' : e.st === 'MAT' ? 'Bodyweight' : '';
+const stLabel = e => e.st === 'CB' ? 'Arm pad + low pulley' : e.st === 'PS' ? 'Pulley station · ' + (e.m.h <= 1 ? 'lowest hole' : e.m.h >= 16 ? 'top hole' : 'hole ' + e.m.h) : ST_NAME[e.st];
+function heightWord(h) { const z = carZ(h); return z < 25 ? 'floor level' : z < 70 ? 'knee height' : z < 100 ? 'waist height' : z < 125 ? 'chest height' : z < 145 ? 'shoulder height' : z < 170 ? 'face height' : 'above head height'; }
+function setupText(e) {
+  const m = e.m || {}, out = [];
+  if (e.st === 'MAT') return 'Lay the yoga mat on a flat floor with some room around it, about 2 by 1 metres. No machine set-up needed.';
+  if (e.st === 'CP') { out.push(e.P && e.P.z < 60 ? 'Lower the seat as far as it goes.' : 'Set the seat so the handles sit at mid-chest with your back on the pads.'); out.push('Put the arm pin in the press position.'); }
+  if (e.st === 'BF') out.push('Put the arm pin in the butterfly position and set the seat so your elbows sit level with your shoulders against the arm pads.');
+  if (e.st === 'LG') out.push(e.legRoller && e.legRoller.behind ? 'Take the arm pad off. Set the lever start position forward so its roller sits behind your lower calf when you stand facing the seat.' : 'Take the arm pad off the leg lever. Line your knees up with the lever pivot, with the rollers just above your ankles.');
+  if (e.st === 'CB') out.push('Fit the arm pad on top of the leg lever. Clip the curl bar to the low front pulley with the chain, short enough that the bar hangs just below the pad.');
+  if (e.st === 'UP') { out.push(m.att === 'grip' ? 'Clip a single grip to the upper pulley above the seat.' : 'Hook the lat bar to the upper pulley above the seat.'); if (e.base === 'seatRev') out.push('Sit facing the backrest with your legs either side of the column.'); if (e.base === 'stand') out.push('Take the arm pad off the leg lever so you can stand close.'); }
+  if (e.st === 'LP') { out.push('Clip the ' + (m.att === 'strap' ? 'ankle strap' : m.att === 'lat' ? 'lat bar' : 'curl bar') + ' to the low pulley at the front of the base; use the chain to set the length.'); if (m.pad) out.push('Fit the arm pad on the leg lever to hold on to.'); }
+  if (e.st === 'PS') { out.push('Move the pulley station carriage to ' + HOLE_NAMES(m.h) + ' (about ' + heightWord(m.h) + ') and clip on the ' + (m.att === 'strap' ? 'ankle strap' : 'single grip') + '.'); out.push('Use at least 10 kg so the cable stays on its pulleys.'); }
+  return out.join(' ');
+}
+const DV = { 'Lat pulldown, wide grip': 'https://www.youtube.com/watch?v=kwJeh3QyhVE', 'Lat pulldown, close grip': 'https://www.youtube.com/watch?v=kwJeh3QyhVE', 'Underhand lat pulldown': 'https://www.youtube.com/watch?v=kwJeh3QyhVE',
+  'Cable squat': 'https://www.youtube.com/watch?v=P84ktN7w-EM', 'Cable pull-through': 'https://www.youtube.com/watch?v=P84ktN7w-EM', 'Upright row': 'https://www.youtube.com/watch?v=P84ktN7w-EM', 'Single-arm lat pulldown': 'https://www.youtube.com/watch?v=P84ktN7w-EM' };
+/* ---------- grip ---------- */
+const GRIP_INFO = {
+  over: ['Overhand grip', 'Palms face down or away from you; thumbs wrap around on the inside.'],
+  under: ['Underhand grip', 'Palms face up or toward you; thumbs sit on the outside.'],
+  neutral: ['Neutral grip', 'Palms face in with the thumb on top, as if holding a hammer.'],
+  both: ['Both hands on one handle', 'Wrap both hands around the single grip, one above the other, thumbs on top.'],
+  open: ['Open hands', 'Rest your forearms flat on the pads with relaxed, open hands and push with your forearms.'],
+  hold: ['Hold for balance', 'Hold on lightly to keep your balance; don\u2019t pull with your arms.'],
+  none: ['Hands free', 'Rest your hands on your hips or hold the frame lightly.'],
+  flat: ['Hands flat on the mat', 'Palms flat under your shoulders, fingers spread and pointing forward.'],
+  forearms: ['Forearms on the mat', 'Elbows under your shoulders, forearms parallel and hands relaxed.']
+};
+function gripOf(e) {
+  const t = e.grip || 'none', m = e.m || {};
+  const two = (m.att === 'lat' || m.att === 'bar') && (m.on || 'hands') === 'hands' && (t === 'over' || t === 'under');
+  const one = m.on === 'R' || m.on === 'L';
+  let width = '';
+  if (two) { const J = solve(e, 0), sep = Math.hypot(...[0, 1, 2].map(i => J.arms.R.tip[i] - J.arms.L.tip[i])); width = sep > 62 ? 'wide' : sep < 30 ? 'close' : 'shoulder'; }
+  const [label, text] = GRIP_INFO[t];
+  const wtext = width === 'wide' ? ' Hands wider than your shoulders.' : width === 'close' ? ' Hands close together.' : width === 'shoulder' ? ' Hands about shoulder-width apart.' : one && t !== 'hold' ? ' One hand at a time.' : '';
+  return { t, label, text: text + wtext, two, one, width };
+}
+function gripIcon(gi) {
+  const t = gi.t;
+  const hand = (x, y, v, ts, thumbUp) => {
+    const w = v ? 30 : 34, h = v ? 34 : 30;
+    let g = '<rect x="' + (x - w / 2) + '" y="' + (y - h / 2) + '" width="' + w + '" height="' + h + '" rx="11" fill="var(--body)" stroke="var(--grip-soft)" stroke-width="1.2"/>';
+    for (const o of [-10.5, -3.5, 3.5, 10.5]) g += v ? '<line x1="' + (x - 10) + '" y1="' + (y + o) + '" x2="' + (x + 10) + '" y2="' + (y + o) + '" stroke="var(--grip-soft)" stroke-width="1.6" stroke-linecap="round"/>'
+      : '<line x1="' + (x + o) + '" y1="' + (y - 10) + '" x2="' + (x + o) + '" y2="' + (y + 10) + '" stroke="var(--grip-soft)" stroke-width="1.6" stroke-linecap="round"/>';
+    const th = v ? [x + 4, y - 15, x + 12, y - 27] : thumbUp ? [x + ts * 15, y - 4, x + ts * 25, y - 15] : [x + ts * 15, y + 4, x + ts * 25, y + 15];
+    g += '<line x1="' + th[0] + '" y1="' + th[1] + '" x2="' + th[2] + '" y2="' + th[3] + '" stroke="var(--grip-soft)" stroke-width="9.4" stroke-linecap="round"/><line x1="' + th[0] + '" y1="' + th[1] + '" x2="' + th[2] + '" y2="' + th[3] + '" stroke="var(--body)" stroke-width="7.6" stroke-linecap="round"/>';
+    return g;
+  };
+  const bar = (x1, y1, x2, y2) => '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="var(--steel)" stroke-width="7" stroke-linecap="round"/>';
+  let g = '';
+  if (t === 'over' || t === 'under' || t === 'hold') {
+    const up = t === 'under';
+    if (gi.two) { const d = gi.width === 'wide' ? 64 : gi.width === 'close' ? 18 : 40; g = bar(14, 52, 226, 52) + hand(120 - d, 52, 0, 1, up) + hand(120 + d, 52, 0, -1, up); }
+    else g = bar(80, 52, 160, 52) + '<line x1="120" y1="52" x2="120" y2="4" stroke="var(--cable)" stroke-width="1.5"/>' + hand(120, 52, 0, -1, up);
+  } else if (t === 'neutral') {
+    g = gi.one || !gi.two ? bar(120, 20, 120, 86) + hand(120, 54, 1) : bar(96, 20, 96, 86) + bar(144, 20, 144, 86) + hand(96, 54, 1) + hand(144, 54, 1);
+  } else if (t === 'both') {
+    g = bar(120, 8, 120, 94) + hand(120, 68, 1) + hand(120, 32, 1);
+  } else if (t === 'open') {
+    g = '<rect x="92" y="6" width="56" height="90" rx="12" fill="var(--st)" opacity=".85"/><line x1="120" y1="98" x2="120" y2="56" stroke="var(--body)" stroke-width="18" stroke-linecap="round"/>';
+    for (const o of [-9, -3, 3, 9]) g += '<line x1="' + (120 + o) + '" y1="46" x2="' + (120 + o * 1.15) + '" y2="16" stroke="var(--grip-soft)" stroke-width="6" stroke-linecap="round"/><line x1="' + (120 + o) + '" y1="46" x2="' + (120 + o * 1.15) + '" y2="16" stroke="var(--body)" stroke-width="4.4" stroke-linecap="round"/>';
+    g += '<rect x="106" y="40" width="28" height="18" rx="8" fill="var(--body)" stroke="var(--grip-soft)" stroke-width="1.2"/><line x1="133" y1="50" x2="146" y2="38" stroke="var(--grip-soft)" stroke-width="7.4" stroke-linecap="round"/><line x1="133" y1="50" x2="146" y2="38" stroke="var(--body)" stroke-width="5.6" stroke-linecap="round"/>';
+  } else if (t === 'flat' || t === 'forearms') {
+    g = '<rect x="66" y="10" width="108" height="84" rx="6" fill="var(--st-soft)" stroke="var(--st)" stroke-width="1.4"/>';
+    const flatHand = (x, mirror) => { let h = ''; for (const o of [-9, -3, 3, 9]) h += '<line x1="' + (x + o) + '" y1="52" x2="' + (x + o * 1.25) + '" y2="' + (o === -9 || o === 9 ? 30 : 24) + '" stroke="var(--grip-soft)" stroke-width="6" stroke-linecap="round"/><line x1="' + (x + o) + '" y1="52" x2="' + (x + o * 1.25) + '" y2="' + (o === -9 || o === 9 ? 30 : 24) + '" stroke="var(--body)" stroke-width="4.4" stroke-linecap="round"/>';
+      const tx = x + (mirror ? 14 : -14); h += '<line x1="' + (x + (mirror ? 10 : -10)) + '" y1="58" x2="' + tx + '" y2="46" stroke="var(--grip-soft)" stroke-width="7.4" stroke-linecap="round"/><line x1="' + (x + (mirror ? 10 : -10)) + '" y1="58" x2="' + tx + '" y2="46" stroke="var(--body)" stroke-width="5.6" stroke-linecap="round"/>';
+      return h + '<rect x="' + (x - 13) + '" y="48" width="26" height="22" rx="9" fill="var(--body)" stroke="var(--grip-soft)" stroke-width="1.2"/>'; };
+    if (t === 'flat') g += flatHand(98, 1) + flatHand(142, 0) + '<line x1="98" y1="70" x2="98" y2="94" stroke="var(--body)" stroke-width="12"/><line x1="142" y1="70" x2="142" y2="94" stroke="var(--body)" stroke-width="12"/>';
+    else g += '<line x1="96" y1="92" x2="102" y2="44" stroke="var(--body)" stroke-width="14" stroke-linecap="round"/><line x1="144" y1="92" x2="138" y2="44" stroke="var(--body)" stroke-width="14" stroke-linecap="round"/><circle cx="104" cy="34" r="9" fill="var(--body)" stroke="var(--grip-soft)" stroke-width="1.2"/><circle cx="136" cy="34" r="9" fill="var(--body)" stroke="var(--grip-soft)" stroke-width="1.2"/>';
+  } else return '';
+  const vb = (t === 'over' || t === 'under' || t === 'hold') && gi.two ? '0 0 240 100' : '62 2 116 96';
+  return '<svg class="gripsvg" viewBox="' + vb + '" role="img" aria-label="' + esc(gi.label) + '">' + g + '</svg>';
+}
+const vidUrl = e => DV[e.n] || 'https://www.youtube.com/results?search_query=' + encodeURIComponent(e.n + (e.st === 'MAT' ? ' exercise how to' : ' cable home gym'));
+const vidText = e => DV[e.n] ? (DV[e.n].includes('kwJeh') ? 'Watch a lat pulldown how-to' : 'Watch a cable workout that includes this move') : 'Find a demo on YouTube';
+
+/* ---------- colours from the theme ---------- */
+const C = {};
+function readColors() {
+  const cs = getComputedStyle(document.documentElement), g = n => cs.getPropertyValue(n).trim();
+  Object.assign(C, { bg: g('--surface'), floor: g('--floor'), shroud: g('--shroud'), frame: g('--frame'), pad: g('--pad'), padEdge: g('--pad'), chrome: g('--chrome'),
+    body: g('--body'), bodyFar: g('--body-far'), face: g('--face'), grip: g('--grip'), gripSoft: g('--grip-soft'), hot: g('--hot'), hotFar: g('--hot-far'), st: g('--st'), stSoft: g('--st-soft'), cable: g('--cable'), steel: g('--steel'), ink: g('--ink'), surface: g('--surface') });
+}
+readColors();
+
+/* ---------- canvas helpers ---------- */
+const FB = new Map();
+const fbOf = (e, v) => { const k = e.id + v; if (!FB.has(k)) FB.set(k, frameBounds(e, v)); return FB.get(k); };
+function fit(cv) {
+  const dpr = Math.min(2, window.devicePixelRatio || 1), w = Math.round(cv.clientWidth * dpr), h = Math.round(cv.clientHeight * dpr);
+  if (w && (cv.width !== w || cv.height !== h)) { cv.width = w; cv.height = h; }
+}
+function paint(cv, e, u, v) { fit(cv); const ctx = cv.getContext('2d'); drawScene(ctx, cv.width, cv.height, e, u, v, C, fbOf(e, v)); }
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function phase(t) { const p = (t / 3.8) % 1; const s = x => (1 - Math.cos(Math.PI * x)) / 2; return p < 0.12 ? 0 : p < 0.46 ? s((p - 0.12) / 0.34) : p < 0.58 ? 1 : p < 0.92 ? 1 - s((p - 0.58) / 0.34) : 0; }
+
+/* ---------- exercises ---------- */
+const GROUPS = MUSCLES.filter(g => EX.some(e => e.g === g));
+const STATIONS = ['CP', 'BF', 'LG', 'CB', 'UP', 'LP', 'PS', 'MAT'];
+let fMus = 'All', fSt = 'All', listNow = EX.slice();
+function chipRow(el, items, cur, onPick) {
+  el.querySelectorAll('.chip').forEach(c => c.remove());
+  for (const [val, label, n] of items) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.setAttribute('aria-pressed', String(val === cur));
+    b.innerHTML = esc(label) + (n !== undefined ? '<span class="n">' + n + '</span>' : '');
+    b.onclick = () => onPick(val); el.appendChild(b);
+  }
+}
+function renderFilters() {
+  chipRow($('fMuscle'), [['All', 'All', EX.length], ...GROUPS.map(g => [g, g, EX.filter(e => e.g === g).length])], fMus, v => { fMus = v; renderGrid(); renderFilters(); });
+  chipRow($('fStation'), [['All', 'All'], ...STATIONS.map(s => [s, ST_NAME[s], EX.filter(e => e.st === s).length])], fSt, v => { fSt = v; renderGrid(); renderFilters(); });
+}
+const cardCanvases = new Set(), visible = new Set();
+const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) visible.add(x.target); else visible.delete(x.target); }), { rootMargin: '120px' });
+function renderGrid() {
+  const g = $('grid'); g.innerHTML = ''; cardCanvases.forEach(c => io.unobserve(c)); cardCanvases.clear(); visible.clear();
+  listNow = EX.filter(e => (fMus === 'All' || e.g === fMus) && (fSt === 'All' || e.st === fSt));
+  if (!listNow.length) { g.innerHTML = '<div class="empty">No exercises use that station for this muscle group. Pick another station or muscle.</div>'; return; }
+  for (const e of listNow) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'card'; b.setAttribute('aria-label', e.n);
+    b.innerHTML = '<canvas></canvas><div class="meta"><span class="g">' + esc(e.g) + '</span><b>' + esc(e.n) + '</b>' +
+      '<div class="row"><span class="station">' + esc(stLabel(e)) + '</span><span class="att">· ' + esc(attOf(e)) + '</span></div>' +
+      '<div class="row"><span class="grip"><i class="fist" aria-hidden="true"></i>' + esc(gripOf(e).label) + '</span></div><div class="cprog" data-prog="' + e.id + '" hidden></div></div>';
+    b.onclick = () => openEx(e);
+    const cv = b.querySelector('canvas'); cv._e = e; cardCanvases.add(cv); io.observe(cv);
+    g.appendChild(b);
+  }
+  requestAnimationFrame(() => cardCanvases.forEach(cv => paint(cv, cv._e, REDUCED ? 1 : 0, cv._e.view)));
+}
+
+/* ---------- detail sheet ---------- */
+const sheet = $('sheet'), dcv = $('dcanvas');
+let cur = null, dView = 'side', playing = !REDUCED, scrubU = REDUCED ? 1 : 0, lastView = 'exercises';
+const VIEW_ORDER = [['side', 'Side'], ['front', 'Front'], ['top', 'Top'], ['q', '3/4']];
+function renderViews(el, active, onPick) {
+  el.innerHTML = '';
+  for (const [k, label] of VIEW_ORDER) { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = label; b.setAttribute('aria-pressed', String(k === active)); b.onclick = () => onPick(k); el.appendChild(b); }
+}
+function openEx(e) { if (location.hash !== '#' + e.id) location.hash = e.id; else showSheet(e); }
+function showSheet(e) {
+  cur = e; dView = e.view;
+  $('dGroup').textContent = e.g; $('dTitle').textContent = e.n;
+  $('dTags').innerHTML = '<span class="station">' + esc(stLabel(e)) + '</span><span class="att">' + esc(attOf(e)) + '</span>';
+  $('dSetup').textContent = setupText(e);
+  const gi = gripOf(e); $('dGripT').textContent = gi.label; $('dGrip').textContent = gi.text; $('dGripI').innerHTML = gripIcon(gi);
+  $('dHow').textContent = e.how; $('dWatch').textContent = e.watch;
+  $('dForm').textContent = e.st === 'MAT' ? 'Slow and controlled: about 2 s down and 1 s up, breathing out on the effort. Quality beats extra reps.' : GP[e.g];
+  $('dSetupH').textContent = e.st === 'MAT' ? 'Set-up' : 'Machine set-up';
+  $('dChecks').innerHTML = e.checks.map(c => '<li class="' + (c.ok === 1 ? '' : 'w') + '"><span><b>' + esc(c.k) + '.</b> ' + esc(c.msg) + '</span></li>').join('');
+  $('dVid').href = vidUrl(e); $('dVid').textContent = vidText(e);
+  renderSheetProgress();
+  const pick = k => { dView = k; renderViews($('dviews'), dView, pick); if (!playing) paint(dcv, cur, scrubU, dView); };
+  renderViews($('dviews'), dView, pick);
+  const i = listNow.indexOf(e), list = i >= 0 ? listNow : EX, j = list.indexOf(e);
+  $('dprev').disabled = j <= 0; $('dnext').disabled = j >= list.length - 1;
+  $('dprev').onclick = () => openEx(list[j - 1]); $('dnext').onclick = () => openEx(list[j + 1]);
+  if (!sheet.open) { try { sheet.showModal(); } catch (_) { sheet.setAttribute('open', ''); } }
+  $('dplay').textContent = playing ? 'Pause' : 'Play';
+  sheet.querySelector('.info').scrollTop = 0;
+  requestAnimationFrame(() => paint(dcv, cur, playing ? 0 : scrubU, dView));
+}
+$('dclose').onclick = () => sheet.close();
+sheet.addEventListener('close', () => { cur = null; if (location.hash.startsWith('#ex-')) location.hash = lastView; });
+sheet.addEventListener('click', ev => { if (ev.target === sheet) sheet.close(); });
+$('dplay').onclick = () => { playing = !playing; $('dplay').textContent = playing ? 'Pause' : 'Play'; if (!playing && cur) paint(dcv, cur, scrubU, dView); };
+$('dscrub').oninput = ev => { playing = false; $('dplay').textContent = 'Play'; scrubU = ev.target.value / 100; if (cur) paint(dcv, cur, scrubU, dView); };
+
+/* ---------- plans ---------- */
+const ROUTE_NAME = { CP: 'Press arms', BF: 'Butterfly arms', LG: 'Leg lever', CB: 'Arm pad', UP: 'Upper pulley', LP: 'Low front pulley', PS: 'Pulley station', MAT: 'Yoga mat' };
+W.forEach(w => {
+  w.id = 'plan-' + slug(w.n);
+  w.mins = Math.round(2 + w.e.reduce((a, x) => a + x[1] * (x[3] ? 2.4 : 1.7), 0));
+  w.mus = MUSCLES.filter(m => w.e.some(x => BYNAME[x[0]] && BYNAME[x[0]].g === m));
+  w.route = [];
+  w.e.forEach(x => { const e = BYNAME[x[0]]; if (!e) return; let r = ROUTE_NAME[e.st]; if (e.st === 'PS') r += ' (' + (e.m.h <= 1 ? 'lowest' : e.m.h >= 16 ? 'top' : 'hole ' + e.m.h) + ')'; if (w.route[w.route.length - 1] !== r) w.route.push(r); });
+});
+const BYPLAN = Object.fromEntries(W.map(w => [w.n, w]));
+let fLen = 'all', fPm = 'All';
+const LENS = [['all', 'All'], ['s', 'Up to 20 min'], ['m', '21–30 min'], ['l', 'Over 30 min']];
+const lenOk = (w, k) => k === 'all' || (k === 's' ? w.mins <= 20 : k === 'm' ? w.mins > 20 && w.mins <= 30 : w.mins > 30);
+function exButton(name, sets, reps, each, uid) {
+  const e = BYNAME[name]; if (!e) return '';
+  return '<div class="prow"><button type="button" class="exn" data-ex="' + esc(e.id) + '"><span>' + esc(name) + (e.st === 'MAT' ? ' <em class="matTag">mat</em>' : '') + '</span><span class="sr">' + sets + ' × ' + esc(reps) + (each ? ' <em>each side</em>' : '') + '</span></button>' +
+    '<div class="pline"><span class="pls" data-pline="' + e.id + '">' + rowLine(e) + '</span><button type="button" class="plog btn small" data-log="' + e.id + '" data-sets="' + sets + '" data-reps="' + esc(reps) + '" data-uid="' + uid + '" aria-expanded="false"' + (canLog() ? '' : ' hidden') + '>Log</button></div></div>';
+}
+function planCard(w) {
+  return '<article class="plan" id="' + w.id + '"><div class="z"><h3>' + esc(w.n) + '</h3><span class="mins">~' + w.mins + ' min</span></div>' +
+    '<ol class="route" aria-label="Order of stations">' + w.route.map(r => '<li>' + esc(r) + '</li>').join('') + '</ol>' +
+    (w.note ? '<div class="once">' + esc(w.note) + '</div>' : '') +
+    '<div class="xl">' + w.e.map((x, k) => exButton(x[0], x[1], x[2], x[3], w.id + '-' + k)).join('') + '</div><div class="mus">' + esc(w.mus.join(' · ')) + '</div></article>';
+}
+function renderPlans() {
+  chipRow($('fLen'), LENS.map(([k, l]) => [k, l, W.filter(w => lenOk(w, k)).length]), fLen, v => { fLen = v; renderPlans(); });
+  chipRow($('fPm'), [['All', 'All'], ...MUSCLES.map(m => [m, m, W.filter(w => w.mus.includes(m)).length])], fPm, v => { fPm = v; renderPlans(); });
+  const ok = w => lenOk(w, fLen) && (fPm === 'All' || w.mus.includes(fPm));
+  const one = W.filter(w => w.kind === 'one' && ok(w)), multi = W.filter(w => w.kind === 'multi' && ok(w));
+  $('pg1').innerHTML = one.length ? one.map(planCard).join('') : '<div class="empty">No single-muscle plan matches. Try another length.</div>';
+  $('pg2').innerHTML = multi.length ? multi.map(planCard).join('') : '<div class="empty">No multi-muscle plan matches. Try another length.</div>';
+}
+document.addEventListener('click', ev => { const b = ev.target.closest('[data-ex]'); if (b && b.dataset.ex) { const e = EX.find(x => x.id === b.dataset.ex); if (e) openEx(e); } });
+
+/* ---------- week ---------- */
+function renderWeek() {
+  $('weekGrid').innerHTML = DAYS.map(([d, names]) => {
+    const ws = names.map(n => BYPLAN[n]).filter(Boolean);
+    if (!ws.length) return '<div class="day rest"><h3>' + d + '</h3><div>Rest day</div></div>';
+    const tot = ws.reduce((a, w) => a + w.mins, 0);
+    return '<div class="day"><h3>' + d + '<small>' + tot + ' min</small></h3>' + ws.map(w =>
+      '<div class="wk"><a href="#' + w.id + '">' + esc(w.n) + '</a><span class="mins">' + w.mins + ' min</span><span class="wz">' + esc(w.mus.join(', ')) + '</span><ul>' +
+        w.e.map(x => { const e = BYNAME[x[0]]; return '<li><button type="button" data-ex="' + (e ? e.id : '') + '">' + esc(x[0]) + '</button></li>'; }).join('') + '</ul></div>').join('') + '</div>';
+  }).join('');
+  let h = '<thead><tr><th>Muscle</th>' + DAYS.map(d => '<th>' + d[0] + '</th>').join('') + '<th>Sessions</th></tr></thead><tbody>';
+  for (const m of MUSCLES) {
+    let n = 0;
+    h += '<tr><td>' + m + '</td>' + DAYS.map(([d, names]) => { const on = names.some(nm => BYPLAN[nm] && BYPLAN[nm].mus.includes(m)); if (on) n++; return '<td>' + (on ? '<span class="dot" aria-label="trained"></span>' : '') + '</td>'; }).join('') + '<td class="tot">' + n + '</td></tr>';
+  }
+  $('cov').innerHTML = h + '</tbody>';
+}
+
+/* ---------- machine model view ---------- */
+const MLAB = [
+  ['Weight stack', [-16, 15, 120], '70 kg in plates inside the tower. It can’t be extended.', null],
+  ['Press & butterfly arms', [47, 22, 128], 'One pair of upright arms. Handles at the bottom for the chest press, forearm pads for the butterfly; a pin switches between them.', ['CP', 'BF']],
+  ['Seat & backrest', [34, -14, 92], 'The seat height adjusts; the backrest is fixed upright. For lat pulldowns you sit facing the backrest.', null],
+  ['Upper pulley', [67, 0, 183], 'Above the front of the seat. Takes the long curved lat bar or a single grip.', ['UP']],
+  ['Leg lever', [92, 12, 21], 'Pivots at the front of the seat with rollers at the bottom, plus fixed rollers at the seat front. Seated leg extension, or standing leg curl with the lever set forward.', ['LG']],
+  ['Arm pad', [90, 21, 82], 'Fits on top of the leg lever for preacher curls. Also a handhold for kickbacks.', ['CB']],
+  ['Low front pulley', [95, 0, 6], 'At the front of the base with a chain and foot plate. Takes the curl bar, lat bar or ankle strap.', ['LP']],
+  ['Pulley station', [-2, -32, 120], 'One pulley on a rail beside the tower, 16 holes from floor to head height. Use at least 10 kg.', ['PS']]
+];
+let mView = 'q';
+function drawMachine() {
+  const cv = $('mcanvas'); fit(cv); const ctx = cv.getContext('2d'), Wd = cv.width, Hd = cv.height;
+  const e = { st: '', base: 'stand', P: { x: 2000 }, m: { pad: 1 }, g: 'Core', showLat: 1 };
+  const cam = camera(VIEWS[mView]);
+  const prims = machinePrims(e, { press: 0, flyR: 0, flyL: 0, lev: M.lev.rest, h: 9, pad: true, cab: null });
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  const take = p => { const q = proj(cam, p); x0 = Math.min(x0, q[0]); x1 = Math.max(x1, q[0]); y0 = Math.min(y0, q[1]); y1 = Math.max(y1, q[1]); };
+  prims.forEach(pr => { if (pr.k === 'box') { const b = pr.b; for (const x of [b[0], b[1]]) for (const y of [b[2], b[3]]) for (const z of [b[4], b[5]]) take([x, y, z]); } else if (pr.k === 'seg') { take(pr.a); take(pr.b); } else if (pr.k === 'poly') pr.pts.forEach(take); else if (pr.k === 'slab') { pr.pts.forEach(take); pr.low.forEach(take); } else take(pr.c); });
+  const fb = { x0: x0 - 18, x1: x1 + 18, y0: y0 - 14, y1: y1 + 14, cam };
+  const fake = Object.assign({}, e, { n: 'model' });
+  /* reuse the scene renderer with no person: draw with a figure far outside the frame */
+  drawScene(ctx, Wd, Hd, fake, 0, mView, C, fb);
+  const s = Math.min(Wd / (fb.x1 - fb.x0), Hd / (fb.y1 - fb.y0)), ox = (Wd - (fb.x1 - fb.x0) * s) / 2, oy = (Hd - (fb.y1 - fb.y0) * s) / 2;
+  const P2 = p => { const q = proj(cam, p); return [ox + (q[0] - fb.x0) * s, Hd - oy - (q[1] - fb.y0) * s]; };
+  /* hole ticks on the pulley station rail */
+  ctx.strokeStyle = C.ink; ctx.lineWidth = Math.max(1, 1.2 * s);
+  for (let h = 1; h <= 16; h++) { const a = P2([M.rail.x, M.rail.y - 3, carZ(h)]), b = P2([M.rail.x, M.rail.y - 7, carZ(h)]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+  const r = Math.max(9, 11 * Math.min(1.4, Wd / 600));
+  ctx.font = '700 ' + Math.round(r * 1.25) + 'px "Barlow Condensed", "Arial Narrow", sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  MLAB.forEach(([name, p], i) => { const q = P2(p); ctx.fillStyle = C.st; ctx.beginPath(); ctx.arc(q[0], q[1], r, 0, 7); ctx.fill(); ctx.fillStyle = C.surface; ctx.fillText(String(i + 1), q[0], q[1] + 1); });
+}
+function renderMachine() {
+  const pick = k => { mView = k; renderViews($('mviews'), mView, pick); drawMachine(); };
+  renderViews($('mviews'), mView, pick);
+  $('stl').innerHTML = MLAB.map(([n, p, d, sts], i) => { const cnt = sts ? EX.filter(e => sts.includes(e.st)).length : 0;
+    return '<div><span class="k">' + (i + 1) + '</span><span><b>' + esc(n) + '</b>' + (sts ? ' <span class="att">· ' + cnt + ' exercises</span>' : '') + '<p>' + esc(d) + '</p></span></div>'; }).join('');
+  $('rem').innerHTML = REMOVED.map(([n, why]) => '<div><b>' + esc(n) + '.</b> ' + esc(why) + '</div>').join('');
+  drawMachine();
+}
+
+/* ---------- routing ---------- */
+const VIEWS_LIST = ['exercises', 'plans', 'week', 'machine'];
+function show(v) {
+  lastView = v;
+  VIEWS_LIST.forEach(k => { $('v-' + k).hidden = k !== v; });
+  document.querySelectorAll('nav.tabs a').forEach(a => a.setAttribute('aria-current', a.dataset.v === v ? 'page' : 'false'));
+  if (v === 'machine') requestAnimationFrame(drawMachine);
+  if (v === 'exercises') requestAnimationFrame(() => cardCanvases.forEach(cv => paint(cv, cv._e, REDUCED ? 1 : 0, cv._e.view)));
+}
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h.startsWith('ex-')) { const e = EX.find(x => x.id === h); if (e) { show(lastView); showSheet(e); return; } }
+  if (sheet.open) sheet.close();
+  if (h.startsWith('plan-')) {
+    fLen = 'all'; fPm = 'All'; renderPlans(); show('plans');
+    const el = $(h); if (el) { el.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1800); }
+    return;
+  }
+  const v = VIEWS_LIST.includes(h) ? h : 'exercises';
+  if (v !== lastView || !h) window.scrollTo(0, 0);
+  show(v);
+}
+window.addEventListener('hashchange', route);
+
+/* ---------- animation loop ---------- */
+let t0 = performance.now(), last = 0;
+function loop(now) {
+  if (now - last > 33) {
+    last = now; const u = phase((now - t0) / 1000);
+    if (!$('v-exercises').hidden) visible.forEach(cv => paint(cv, cv._e, u, cv._e.view));
+    if (cur && sheet.open && playing) { paint(dcv, cur, u, dView); $('dscrub').value = Math.round(u * 100); scrubU = u; }
+  }
+  requestAnimationFrame(loop);
+}
+
+/* ---------- theme changes ---------- */
+function repaintAll() { readColors(); cardCanvases.forEach(cv => paint(cv, cv._e, REDUCED ? 1 : 0, cv._e.view)); if (cur) paint(dcv, cur, scrubU, dView); if (!$('v-machine').hidden) drawMachine(); }
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', repaintAll);
+new MutationObserver(repaintAll).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class', 'style'] });
+window.addEventListener('resize', () => { if (!$('v-machine').hidden) drawMachine(); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (!$('v-machine').hidden) drawMachine(); });
+
+/* ---------- boot ---------- */
+$('nEx').textContent = EX.length; $('nPl').textContent = W.length;
+renderFilters(); renderGrid(); renderPlans(); renderWeek(); renderMachine();
+initProgress();
+route();
+if (!REDUCED) requestAnimationFrame(loop);
+window.__unit6 = { EX, W, paint, phase, showSheet, drawMachine };
+
+</script>
+<script>if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));</script>
+</body></html>
