@@ -1,6 +1,6 @@
-/* Offline support. Only the app's own files are cached here; saved progress lives in the phoneb's local storage,
+/* Offline support. Only the app's own files are cached here; saved progress lives in the phone's local storage,
    which this worker never reads, changes or deletes, so updating the app keeps every entry. */
-const VERSION = 'u6-app-b65fe42576';
+const VERSION = 'u6-app-9b9f8207b2';
 const FILES = ["./", "index.html", "manifest.webmanifest", "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png", "fonts/barlow-condensed-latin-600-normal.woff2", "fonts/barlow-condensed-latin-700-normal.woff2", "fonts/barlow-latin-400-normal.woff2", "fonts/barlow-latin-500-normal.woff2", "fonts/barlow-latin-600-normal.woff2", "fonts/ibm-plex-mono-latin-500-normal.woff2"];
 self.addEventListener('install', e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(FILES)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('u6-app-') && k !== VERSION).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
